@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>众筹管理-运营规则</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="css/manage.css" />
+		<style>
+			.contentRight{
+				height:680px;
+			}
+			.revise{
+				display: block;
+				/*padding:10px;*/
+				height:25px;
+				color:#fff;
+				width:60px;
+				line-height: 25px;
+				text-align: center;
+				text-decoration: none;
+				background: #1F76DF;
+				margin:15px 0px 0px 100px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">众筹项目管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">发起的项目</a></li>
+								<li><a href='#'>投票中的项目</a></li>
+								<li><a href='#'>出售中的项目</a></li>
+								<li><a href='#'>待回款中的项目</a></li>
+								<li><a href='#'>完成的项目</a></li>
+								<li><a href='#'>流标的项目</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">众筹运营管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">运营规则</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<div class="jiben">
+						<p>运营参数</p>
+					</div>
+					<!--输入input-->
+					<div class="input">
+						<p class="name-p">
+							<span class="name">众筹最小投资额度：</span>
+							<input type="text" class="inputName" value="10000">
+							<span class="xing">以100|1000|10000的形式填入，表示最小投资额为100元或10000元或10000元(zc_min)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">众普通二手车众筹最大投资额度：</span>
+							<input type="text" class="inputName" value="10000">
+							<span class="xing">以50的形式填入，表示单人总投资金额为项目金额的50%(zc_max)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">众筹集资期限：</span>
+							<input type="text" class="inputName" value="10000">
+							<span class="xing">以5|7|10的形式填入，表示为5天或7天或10天(zc_collect)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">众筹最长持有期限：</span>
+							<input type="text" class="inputName" value="10000">
+							<span class="xing">以40|60的形式填入，表示最长持有期限为为40天或60天(zc_deadline)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">众筹最长持有期限：</span>
+							<input type="text" class="inputName" value="10000">
+							<span class="xing">以40|60的形式填入，表示最长持有期限为为40天或60天(zc_deadline)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">投票期限：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">以6|12|24|36|48的形式填入，表示为6小时或12小时或24小时或36小时或48小时(zc_tp_deadline)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">项目预约比例：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">10代表预约投资最多可占可总众筹金额的10%(zc_auto_money)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">个人预约总额度：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">1代表个人预约总额度1万(zc_user_money)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">单人预约比例：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">20 表示个人占总项目预约金额的20%( zc_auto_user_money)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">平行进口车众筹最大投资额度：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">以50的形式填入，表示单人总投资金额为单辆众筹价格的50%(zc_crowd_max)</span>
+						</p>
+						<a href="#" class="revise">修改</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	</script>
+</html>

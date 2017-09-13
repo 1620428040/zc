@@ -1,0 +1,34 @@
+/*m_left*/
+.m_left{width:210px;border:#e5e5e5 1px solid; border-bottom:none;  float:left; background:#FFF}
+	.subNav li{border-bottom:solid 1px #e5e5e5;cursor:pointer;font-size:14px; line-height:40px; color:#999;
+			padding-left:10px;background:url(../images/jiantou1.jpg) no-repeat;background-position:95% 50%;}
+	
+	
+	.subNav a{color:#666;}
+	.subNav a:hover{color:#006699;}
+
+
+/*right*/
+.m_right {width:993px; float: right; margin-left:15px; margin-bottom:20px; background:#FFF; overflow:hidden}
+
+	.box,.onebox {width:100%; padding:10px; border:#e5e5e5 1px solid;}
+	.box h1{ font-size:20px; line-height:100%; width:auto; float:left; color:#006699}
+	.box p { line-height:24px; padding:10px 0;  }
+	.box img { min-width:758px; margin:5px 0;}
+	
+	.crumb { float:right; line-height:30px;}
+	.crumb a { color:#333}
+	
+	.list li{ border-bottom:#CCCCCC 1px dotted; height:36px; line-height:36px; padding:0 5px; }
+	.list li span{ float:right}
+	
+	.onebox h1{ font-size:22px; line-height:100%; padding-bottom:15px; margin-bottom:5px; width:auto; color:#006699; border-bottom:#e5e5e5 1px solid }
+	.onebox p { line-height:24px; padding:10px 0 0 0;  }
+	.onebox img { min-width:758px; margin:5px 0;}
+	
+/*分页*/
+.tcdPageCode{padding: 15px 20px;text-align: left;color: #ccc;}
+.tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
+.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}

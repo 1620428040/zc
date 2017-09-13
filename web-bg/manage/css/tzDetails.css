@@ -1,0 +1,38 @@
+.jiben>p{
+	width:160px;
+	font-size: 14px;
+}
+.detail{
+	width:60%;
+	margin-left:100px;
+	margin-top:20px;
+	font-size: 12px;
+}
+.detail th{
+	background: #A7A7A7 ;
+	padding:5px;
+	color:#fff;
+	border: 1px solid #e3e6eb;
+}
+.detail td{
+	text-align: center;
+	padding:10px;
+	border: 1px solid #e3e6eb;
+	color:#666;
+}
+.pagenum{
+	background: #E0E0E0;
+}
+.pagenum td>a{
+	width:80px;
+	height:30px;
+	display: block;
+	float: left;
+	color:#444;
+	text-decoration: none;
+	line-height: 30px;
+	text-align: center;
+	background: #E4E4E4;
+	margin-right:20px;
+	border-radius: 15px;
+}

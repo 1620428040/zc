@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<head>
+	<title>注册</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index_main.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/member.css">
+	<!--<link rel="stylesheet" href="__PUBLIC__/css/register.css" />-->
+	<link rel="stylesheet" href="__PUBLIC__/css/public.css" />
+	<!--<script type="text/javascript" src="__PUBLIC__/js/jquery-1.js"></script>-->
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.2.min.js"></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="header_top">
+				<div class="header_wrap">
+					<div class="header_top_main">
+						<span>欢迎来到糯米计划，服务热线：40009-06069</span>
+						<ul>
+							<li>
+								<a href="<?php echo U('Home/Index/register');?>">注册</a>
+							</li>
+							<li>|</li>
+							<li>
+								<a href="<?php echo U('Home/Index/login');?>">登陆</a>
+							</li>
+
+							<li>|</li>
+							<li>
+								<a href="<?php echo U('Home/Index/xszd');?>">新手指导</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="header_main">
+				<div class="header_wrap">
+					<div class="header_conter">
+						<img src="__PUBLIC__/imgs/logo.png">
+						<ul id="header_nav">
+							<li id="title_c01">
+								<a href="<?php echo U('Home/Index/index');?>">首页</a>
+							</li>
+							<li id="title_c02">
+								<a href="<?php echo U('Home/Index/list');?>">众筹列表</a>
+							</li>
+							<li id="title_c03">
+								<a href="">运营规则</a>
+							</li>
+							<li id="title_c04">
+								<a href="<?php echo U('Home/Index/about');?>">关于我们</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header_height"></div>
+		<!--头部结束-->
+		<div id="middle">
+			<div id="box" style="border:none;">
+				<div class="register_form">
+					<h1>会员注册</h1>
+					<form name="form" action="" method="post">
+						<dl>
+							<dt>用户名：</dt>
+							<dd>
+								<input name="phoneNum" id="mobile" maxlength="11" class="required" type="text" onkeyup="value=value.replace(/[^0-9]/g,'')">
+								<p id="msg_mobile">请输入您的常用手机号码。</p>
+								<!--若是進去就提示紅色 加上  class="onError"一-->
+							</dd>
+							<dt>密码：</dt>
+							<dd>
+								<input name="password" id="password" maxlength="16" class="required" type="password">
+								<p id="msg_password">由6-16个字符组成。</p>
+							</dd>
+
+							<dt>确认密码：</dt>
+							<dd>
+								<input name="password2" id="password2" maxlength="16" class="required" type="password">
+								<p id="msg_password2">请再输一次您的密码。</p>
+							</dd>
+							<dt>QQ号码：</dt>
+							<dd>
+								<input name="qq" id="qq_num" class="required" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+								<p id="msg_qq">请输入您的QQ号。</p>
+							</dd>
+
+							<!-- 绑定客服  --><input type="hidden" name="kefuId" id="kefuser">
+							<!-- 推荐人  --><input type="hidden" name="referId">
+							<dt>图形验证码：</dt>
+							<dd>
+								<input id="vcode" type="text">
+								<p style="padding: 0;">
+									<script>
+										var url = "<?php echo U('Home/User/verify_img').'?action=registCode&r=';?>" + Math.random();
+									</script>
+									<a href="javascript:void(0)" onclick="changeimg(url)"><img src="<?php echo U('User/verify_img').'?action=registCode';?>" id="code" style="float:right;width:100px;height:30px;" alt="请点击刷新验证码" align="absmiddle" border="0"></a>
+								</p>
+								<p id="imgcode" style="margin-left:10px;">请输入图形验证码。</p>
+							</dd>
+							<dt>短信验证码：</dt>
+							<dd>
+								<input name="code" id="codes" maxlength="6" class="required" type="text">
+								<p id="msg_sms">
+									<a id="yanzheng">获得验证码</a>
+								</p>
+								<p id="msg_code" style="margin-left:10px;">请输入手机短信验证码。</p>
+							</dd>
+							<dt></dt>
+							<dd>
+								<input id="agreement" name="agreement" checked="checked" style="width: 14px; border:none; margin-top:5px; padding:0;" type="checkbox"> 同意《 <span><a href="http://zc.java.wangdaixitong.com:80/new/gywm/gywm.jsp" target="_blank">服务协议</a></span>》
+							</dd>
+							<dt></dt>
+							<dd>
+								<input id="submit" value=" 提 交 " type="button" name="submit">
+							</dd>
+						</dl>
+					</form> 
+				</div>
+			</div>
+		</div>
+		<!--End middle-->
+	</div>
+	<!--footer 开始-->
+	<div class="footer">
+		<div class="conter_warp">
+			<div class="footer_main">
+				<img src="__PUBLIC__/imgs/footer_logo.png">
+				<div class="footer_content">
+					<ul>
+						<li>
+							<a href="">公司简介</a>
+						</li>
+						<li>|</li>
+						<li>
+							<a href="">服务与团队</a>
+						</li>
+						<li>|</li>
+						<li>
+							<a href="">成功案例</a>
+						</li>
+						<li>|</li>
+						<li>
+							<a href="">联系我们</a>
+						</li>
+					</ul>
+					<div class="clear"></div>
+					<p>Copyright@2012-2016山东金糯米网络有限公司版权所有鲁ICP备12345678-1</p>
+					<p>地址：济南市高新区海信9号</p>
+					<p class="footer_phone">电话：0531-88888888</p>
+				</div>
+				<div class="footer_wx">
+					<p>微信扫一扫</p>
+					<img src="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer 结束-->
+	<script src="__PUBLIC__/js/register.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			//验证手机号
+			var phoneReg = new RegExp("^1[34578][0-9]{9}$");
+			$('#mobile').blur(function() {
+				var phone = $('#mobile').val();
+				if(!(phoneReg.test(phone))) {
+					$('#msg_mobile').removeClass().addClass("onError");
+					$('#msg_mobile').html('手机号填写不正确');
+				} else {
+					$('#msg_mobile').removeClass();
+					$('#msg_mobile').html("√");
+				}
+			})
+			//失去焦点
+			$('form :input').blur(function() {
+				var $parent = $(this).parent();
+				//验证密码
+				if($(this).is('#password')) {
+					if(this.value == "" || this.value.length < 6) {
+						$('#msg_password').removeClass().addClass("onError");
+						$('#msg_password').html("由6-16个字符组成。");
+					} else {
+						$('#msg_password').html(status);
+						$('#msg_password').removeClass()
+						$('#msg_password').html("√");
+					}
+				}
+
+				//确认密码
+				if($(this).is('#password2')) {
+					if(this.value == "") {
+						$('#msg_password2').removeClass().addClass("onError");
+						$('#msg_password2').html("请再输一次您的密码。");
+					} else if(this.value != $("#password").val()) {
+						$('#msg_password2').removeClass().addClass("onError");
+						$('#msg_password2').html("两次密码不一致。");
+					} else {
+						$('#msg_password2').html(status);
+						$('#msg_password2').removeClass()
+						$('#msg_password2').html("√");
+					}
+				}
+				//手机验证码
+				if($(this).is('#code')) {
+					if(this.value == "" || this.value.length < 6) {
+						$('#msg_code').removeClass().addClass("onError");
+						$('#msg_code').html("请填写手机验证码。");
+					} else {
+						$('#msg_code').html(status);
+						$('#msg_code').removeClass()
+						$('#msg_code').html("√");
+					}
+				}
+
+			});
+			//获取验证码
+			$("#yanzheng").click(function() {
+				$.ajax({
+					type: "get",
+					url: "<?php echo U('User/get_verify_code');?>",
+					data: {
+						phone: $("#mobile").val(),
+						imgcode: $("#vcode").val(),
+						action: 'registCode'
+					},
+					success: function(data) {
+						alert(data.msg)
+					},
+					error: function(data) {
+
+					}
+				});
+			});
+			$('#submit').click(function() {
+				$.ajax({
+					type: "post",
+					url: "<?php echo U('User/goregist');?>",
+					data: {
+						username: $("#mobile").val(),
+						password: $("#password").val(),
+						repassword: $("#password2").val(),
+						qq: $("#qq_num").val(),
+						phonecode: $("#codes").val()
+					},
+					success: function(data) {
+						alert(data.msg)
+						alert($("#codes").val())
+					},
+					error: function(data) {
+
+					}
+				});
+			});
+		});
+
+		//注册
+	</script>
+
+</body>
+
+</html>

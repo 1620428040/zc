@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>系统管理--网站设置</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/manage.css" />
+		<link rel="stylesheet" href="css/system.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">系统设置</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">网站设置</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">管理员管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li><a href='#' class="a">管理员管理</a></li>
+								<li><a href='#' class="a">管理组权限管理</a></li>
+								<li><a href='#' class="a">管理员操作日志</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">数据库管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li><a href='#' class="a">数据库信息</a></li>
+								<li><a href='#' class="a">备份管理</a></li>
+								<li><a href='#' class="a">清空数据</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">菜单管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li><a href='#' class="a">导航菜单</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">参数配置</p>
+					<!--输入input-->
+					<div class="input">
+						<p class="name-p">
+							<span class="name">网站名称：</span>
+							<input type="text" class="inputName" value="测试站">
+							<span class="xing color2">出现在每个页面的title后面(web_name)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">网站标题：</span>
+							<input type="text" class="inputName" value="测试站">
+							<span class="xing color2">首页标题(index_title)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">网站关键词：</span>
+							<textarea cols="48" rows="3">测试站</textarea>
+							<span class="xing color2">在首页的keywords中显示(web_keywords)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">网站描述：</span>
+							<textarea cols="48" rows="3">测试站</textarea>
+							<span class="xing color2">在首页的keywords中显示(web_keywords)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">网站底部：</span>
+							<textarea cols="48" rows="3">Copyright © 测试站版权所有   鲁ICP备123456789号-1</textarea>
+							<span class="xing color2">网站底部的版权和联系信息(bottom)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">后台登陆路径：</span>
+							<input type="text" class="inputName" value="测试站">
+							<span class="xing color2">可修改后台登陆路径,格式为任意字母组合。访问路径即为：【http://www.您的域名.com/shang/admin 】</span>
+						</p>
+						<button class="revise_btn">修改</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	</script>
+</html>

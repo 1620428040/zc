@@ -1,0 +1,15 @@
+.pagenum{
+	background: #F1F1F1;
+}
+.pagenum span{
+	margin-right:15px;
+	display: block;
+	float: right;
+	cursor: pointer;
+	padding:5px;
+}
+.selected{
+	background: #fff;
+	color:red;
+	border-radius: 5px;
+}

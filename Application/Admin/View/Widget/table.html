@@ -1,0 +1,32 @@
+<table class="table"cellpadding="0" cellspacing="0">
+	<tr>
+		<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+		<foreach name="fields" key="k" item="v">
+			<th>{$v}</th>
+		</foreach>
+	</tr>
+	<foreach name="data" item="item">
+		<tr>
+			<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+			<foreach name="fields" key="k" item="v">
+				<td>{$item.$k}</td>
+			</foreach>
+			<!--<td>123456</td>
+			<td>张三</td>
+			<td>100000</td>
+			<td>10000</td>
+			<td>2017年8月9日</td>
+			<td>10天</td>
+			<td>10000元</td>
+			<td>200000元</td>
+			<td>200000元</td>
+			<td>200000元</td>-->
+			<td>
+				<a href="#" class="balance_click">[调整余额]</a>
+				<a href="revise.html">[修改信息]</a>
+				<a href="idCard_info.html">[身份证代传]</a>
+				<a href="vip_zj.html">[资金记录]</a>
+			</td>
+		</tr>
+	</foreach>
+</table>

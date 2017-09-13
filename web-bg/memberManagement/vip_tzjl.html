@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会员管理-投资记录</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" />
+		<link rel="stylesheet" href="../moneyCount/css/vipAccount.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">会员管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li><a href='#' class="a">会员列表</a></li>
+								
+							</ul>
+							<li class="Menu-li">
+								<a href="#">推荐人管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">投资记录</a></li>
+								<li ><a href='#' class="a">推广管理</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">认证及申请管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li><a href='#' class="a">手机认证会员</a></li>
+								<li><a href='#' class="a">会员实名认证申请</a></li>
+							</ul>
+	
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">推广管理</p>
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow">搜素/筛选会员</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<div class="search">
+						<p class="searchTitle">搜索/筛选会员&nbsp;<span class="hide">[隐藏]</span></p>
+						<div class="search-input">
+							<p class="input-p">
+								<label><span class="vipname">会员名：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">推广人：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							
+							<p class="input-p">
+								<label><span class="vipname">充值时间（开始时间）：</span><input type="text" value="" class="start-time"><span class="tiaojian color">不只选开始时间则查询从开始时间往后所有</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">充值时间（结束时间）：</span><input type="text" value="" class="start-time"><span class="tiaojian color">不只选开始时间则查询从开始时间往后所有</span></label>
+							</p>
+							<button class="submit">确定</button>
+						</div>
+					</div>
+					<!--投票中的列表-->
+					<div class="list ">
+						<table class="table"cellpadding="0" cellspacing="0">
+							<tr>
+								<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+								<th>ID</th>
+								<th>推广人</th>
+								<th>投资人</th>
+								<th>投资总金额</th>
+								<th>投资总笔数</th>
+								
+								
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								
+								
+							</tr>
+						
+						</table>
+					</div>
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow showBottom" onclick="search();">搜素/筛选会员</button>
+							<button>将当前条件下数据导出Excel</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	$('.searchShow').click(function(){
+		$('.search').show();
+	})
+	$('.hide').click(function(){
+		$('.search').hide();
+	})
+	function search(){
+		if($('.search').css("display")=='none'){
+			$('.search').show();
+			$('.showBottom').text('搜索完毕');
+//alert(111)
+		}else{
+			$('.search').hide();
+			$('.showBottom').text('搜素/筛选会员');
+//alert($222)
+		}
+	}
+	</script>
+</html>

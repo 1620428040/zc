@@ -1,0 +1,125 @@
+
+.list-width{
+	clear: both;
+	overflow-x: scroll;
+	/*height:500px;*/
+	background: #fff;
+}
+.list-width table{
+	width:2000px;
+	
+}
+.title{
+	width:100%;
+	height:40px;
+	background: #F1F1F1;
+}
+.btn{
+	
+	padding:10px;
+	float: left;
+	
+}
+.btn>button{
+	background: #FEFEFE;
+	padding:3px;
+	border:1px solid #AAB8CF;
+	border-radius: 5px;
+}
+.btn>button>a{
+	text-decoration: none;
+	color:#000;
+}
+.pagenum{
+	text-align: right;
+	/*width:50%;*/
+	font-size: 12px;
+	line-height: 40px;
+	margin-right:10px;
+	
+}
+.pagenum>span{
+	margin-right:10px;
+}
+.search{
+	
+	margin-left:15px;
+	display: none;
+}
+.searchTitle{
+	clear: both;
+	
+	font-size:14px;
+	font-weight: bold;
+	line-height: 30px;
+	color:#1e325c;
+	line-height: 40px;
+	text-align: left;
+}
+.hide{
+	color:#3b5999;
+	cursor: pointer;
+}
+
+.input-p{
+	font-size: 12px;
+	line-height: 40px;
+	border-bottom: 1px dashed #ccc;
+}
+.vipname{
+	display: inline-block;
+	width:150px;
+	text-align: right;
+	margin-right:10px;
+}
+.tiaojian{
+	margin-left: 10px;
+}
+.submit{
+	background: #1F76DF ;
+	border:none;
+	padding:5px 20px 5px 20px;
+	color:#fff;
+	margin-left:80px;
+	margin-top:10px;
+}
+.color{
+	color:#fc8936;
+}
+.start-time{
+	width:300px;
+}
+.limit{
+	font-size: 12px;
+	line-height: 30px;
+	text-align: left !important;
+	font-weight: bold;
+}
+.limit>span{
+	margin-right: 30px;
+}
+/*网站资金管理统计样式*/
+.hy{
+	width:30%;
+	min-height:200px;
+	float: left;
+	text-align: center;
+	font-size: 12px;
+	line-height: 30px;
+	border-bottom:1px solid #c1c8d2 ;
+	border-right:1px solid #c1c8d2 ;
+}
+.hy-title{
+	text-align: left;
+	/*margin-left: 10px;*/
+	background: #F2F4F6;
+	border:1px solid #C1C8D2;
+	border-top:none;
+	line-height: 20px;
+	padding-left:10px;
+	color:#7d7d7d;
+	margin-bottom: 20px;
+}
+.height{
+	height:370px;
+}

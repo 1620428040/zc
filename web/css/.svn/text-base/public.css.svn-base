@@ -1,0 +1,29 @@
+.body {
+	background: url('../imgs/body.jpg') repeat-x;
+}
+
+.biao_conent {
+	background: url("../imgs/biao_main.png") no-repeat;
+}
+
+.biao_conent:hover {
+	background: url("../imgs/hover_ico.png") no-repeat;
+}
+.biaoti{
+	background: url(../imgs/shujutu.png) no-repeat;
+}
+.xmdt{
+	background: url("../imgs/shujutu.png") no-repeat;
+}
+.footer{
+	width:100%;
+	height:239px;
+	background: url(../imgs/fooer_bg.png) no-repeat;
+	background-size:100%;
+}
+.fontzoom_li {
+	background: url("../imgs/banner.png") center center no-repeat rgb(86, 193, 237);
+	 position: absolute;
+	  width: 1903px; left: 0px; 
+	  top: 0px;
+}

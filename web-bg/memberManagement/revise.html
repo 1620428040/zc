@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会员管理-修改信息</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" /> 
+		<link rel="stylesheet" href="../moneyCount/css/vipAccount.css" />
+		<link rel="stylesheet" href="css/VIP.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">会员管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">会员列表</a></li>
+								
+							</ul>
+							<li class="Menu-li">
+								<a href="#">推荐人管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">投资记录</a></li>
+								<li><a href='#' class="a">推广管理</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">认证及申请管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li  ><a href='#' class="a">手机认证会员</a></li>
+								<li ><a href='#' class="a">会员实名认证申请</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">会员列表</p>
+					<!--<div class="info">
+						<ul class="info_ul">
+							<li class="info_act">基本信息</li>
+							<li>基本资料</li>
+							<li>银行卡信息</li>
+						</ul>
+					</div>-->
+					<div id="tabbox">
+
+					    <ul class="tabs" id="tabs">
+					       <li><a href="javaScript:void(0)" tab="tab1">基本信息</a></li>
+					       <li><a href="javaScript:void(0)" tab="tab2">基本资料</a></li>
+					       <li><a href="javaScript:void(0)" tab="tab3">银行卡信息</a></li>
+					    </ul>
+					    <ul class="tab_conbox">
+					        <li id="tab1" class="tab_con">
+					           <p>
+					           		<span class="first-span">是否众筹发标人员：</span>
+					           		<input type="radio" name="fabiao" checked="checked"/>否
+					           		<input type="radio" name="fabiao" />是
+									<span class="tab_msg">选择是才可以以此会员身份在后台发布众筹</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">是否冻结：</span>
+					           		<input type="radio" name="dongjie" checked="checked"/>否
+					           		<input type="radio" name="dongjie" />是
+									<span class="tab_msg">冻结后会员不能登录，须联系客服处理</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">客服ID：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">新密码：</span>
+					           		<input type="password" value="" class="input_height"/>
+					           		<span class="tab_msg">如不修改则留空</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">确认密码：</span>
+					           		<input type="password" value="" class="input_height"/>
+					           		<span class="tab_msg">如不修改则留空</span>
+					           </p>
+					           <p>
+					           		<span class="first-span">新支付密码：</span>
+					           		<input type="password" value="" class="input_height"/>
+					           		<span class="tab_msg">如不修改则留空</span>
+					           </p>
+					           <p>
+					           		<span class="first-span">确认支付密码：</span>
+					           		<input type="password" value="" class="input_height"/>
+					           		<span class="tab_msg">如不修改则留空</span>
+					           </p>
+					           <button class="confirm">确定</button>
+					        </li>
+					            
+					        <li id="tab2" class="tab_con">
+					            <p>
+					           		<span class="first-span">会员名：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					      		<p>
+					           		<span class="first-span">会员名：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">身份证号：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">手机号：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">会员邮箱：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">地址：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">年龄：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">职业：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span ">身份证正面照片：</span>
+					           		<span class="cardImg">无缩略图</span>
+					           </p>
+					            <p>
+					           		<span class="first-span ">身份证反面照片：</span>
+					           		<span class="cardImg">无缩略图</span>
+					           </p>
+					           <button class="confirm">确定</button>
+					        </li>
+					    
+					        <li id="tab3" class="tab_con">
+					            <p>
+					           		<span class="first-span">银行账号：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           </p>
+					           <p>
+					           		<span class="first-span">银行名称：</span>
+					           		<select>
+					           			<option value="">--请选择--</option>
+					           			<option value="">招商银行</option>
+					           			<option value="">中国银行</option>
+					           			<option value="">中国工商银行</option>
+					           			<option value="">中国建设银行</option>
+					           			<option value="">中国工商银行</option>
+					           			<option value="">中国建设银行</option>
+					           			<option value="">中国农业银行</option>
+					           			<option value="">中国邮政储蓄银行</option>
+					           			<option value="">交通银行</option>
+					           		</select>
+					           </p>
+					            <p>
+					           		<span class="first-span">开户银行所在省份：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           		<span class="tab_msg">如：山东省</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">开户省银行所在市：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           		<span class="tab_msg">如：济南市</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">开户行支行名称：</span>
+					           		<input type="text" value="0" class="input_height"/>
+					           		<span class="tab_msg">如：高新区支行</span>
+					           </p>
+					            <button class="confirm">确定</button>
+					        </li>
+					    </ul>
+					    
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+
+$(document).ready(function() {
+    jQuery.jqtab = function(tabtit,tabcon) {
+        $(tabcon).hide();
+        $(tabtit+" li:first").addClass("thistab").show();
+        $(tabcon+":first").show();
+    
+        $(tabtit+" li").click(function() {
+            $(tabtit+" li").removeClass("thistab");
+            $(this).addClass("thistab");
+            $(tabcon).hide();
+            var activeTab = $(this).find("a").attr("tab");
+            $("#"+activeTab).fadeIn();
+            return false;
+        });
+        
+    };
+    /*调用方法如下：*/
+    $.jqtab("#tabs",".tab_con");
+    
+});
+	
+	</script>
+</html>

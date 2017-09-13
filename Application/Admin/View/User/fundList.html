@@ -1,0 +1,115 @@
+<extend name="Index/master" />
+<block name="reference">
+	<title>会员管理-推广记录</title>
+	<link rel="stylesheet" href="__PUBLIC__/admin/css/toupiao.css" /> 
+	<link rel="stylesheet" href="__PUBLIC__/admin/css/vipAccount.css" />
+	<link rel="stylesheet" href="__PUBLIC__/admin/css/VIP.css" />
+</block>
+		
+<block name="content">
+	<p class="pageTitle">推广人列表</p>
+	<div class="title">
+		<div class="btn">
+			<button class="searchShow">搜素/筛选会员</button>
+			<button >建立关联</button>
+			<button >推广人列表</button>
+			<button >推广记录</button>
+		</div>
+		<div class="pagenum">
+			<span>上一页</span>
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>上一页</span>
+		</div>
+	</div>
+	<div class="search">
+		<p class="searchTitle">搜索/筛选会员&nbsp;<span class="hide">[隐藏]</span></p>
+		<div class="search-input">
+			<p class="input-p">
+				<label><span class="vipname">会员名：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+			</p>
+			
+			<button class="submit">确定</button>
+		</div>
+	</div>
+	<!--投票中的列表-->
+	<div class="list ">
+		<table class="table"cellpadding="0" cellspacing="0">
+			<tr>
+				<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+				<th>推广人ID</th>
+				<th>推广人</th>
+				<th>推广客户</th>
+				<th>推广类型</th>
+				<th>影响金额</th>
+				<th>发生时间</th>
+				<th>备注</th>
+			</tr>
+			<tr>
+				<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+				<td>123456</td>
+				<td>张三</td>
+				<td>185999@163.com</td>
+				<td>未关联</td>
+				<td>李四</td>
+				<td>2017年8月9日</td>
+				<td>这是备注信息</td>
+				
+			</tr>
+		
+		</table>
+	</div>
+	
+	<div class="title">
+		<div class="btn">
+			<button class="searchShow showBottom" onclick="search();">搜素/筛选会员</button>
+			
+		</div>
+		<div class="pagenum">
+			<span>上一页</span>
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>上一页</span>
+		</div>
+	</div>
+	<!--关联用户的对话框-->
+	<div class="balance balance_width">
+		<p class="balanceTitle">
+			关联用户
+			<span class="close" >×</span>
+		</p>
+		<p class="balance_tit">关联用户</p>
+		<p class="user_name padding"><span class="user_text">关联用户：</span><span>18500944312</span><span>(苗粉粉)</span></p>
+		<p class="user_name padding"><span class="user_text">关联用户名：</span><input type="text"></p>
+		<p class="user_name padding"><button class="submit">提交</button></p>
+	</div>
+	<script>
+		$('.searchShow').click(function(){
+			$('.search').show();
+		})
+		$('.hide').click(function(){
+			$('.search').hide();
+		})
+		function search(){
+			if($('.search').css("display")=='none'){
+				$('.search').show();
+				$('.showBottom').text('搜索完毕');
+				//alert(111)
+			}else{
+				$('.search').hide();
+				$('.showBottom').text('搜素/筛选会员');
+				//alert($222)
+			}
+		}
+		/*关联用户*/
+		$('.correlation').click(function(){
+			$('.balance').show();
+		})
+		/*点击错号  关闭*/
+		$('.close').click(function(){
+			$('.balance').hide();
+		})
+	</script>
+</block>

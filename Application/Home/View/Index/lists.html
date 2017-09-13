@@ -1,0 +1,84 @@
+<extend name="master" />
+<block name="reference">
+	<title>众筹列表</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/invest.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/list.css" />
+</block>
+<block name="content">
+	<style type="text/css">
+		.active{
+			font-weight: bold;
+			color: rgb(0, 153, 204) !important;
+		}
+	</style>
+	<div class="wrap">
+		<div id="middle">
+			<div id="box">
+				<div id="tiaojian">
+					<div class="type_name">项目进程：</div>
+					<ul>
+						<li>
+							<a href="<?php echo U('Home/Index/lists');?>" <?php if(!$status) echo 'class="active"'?>>全部</a>
+						</li>
+						<li>
+							<a href="<?php echo U('Home/Index/lists','status=run');?>" <?php if($status=='run') echo 'class="active"'?>>众筹中</a>
+						</li>
+						<li>
+							<a href="<?php echo U('Home/Index/lists','status=return');?>" <?php if($status=='return') echo 'class="active"'?>>待回收</a>
+						</li>
+						<li>
+							<a href="<?php echo U('Home/Index/lists','status=sell');?>" <?php if($status=='sell') echo 'class="active"'?>>出售中</a>
+						</li>
+						<li>
+							<a href="<?php echo U('Home/Index/lists','status=complete');?>" <?php if($status=='complete') echo 'class="active"'?>>已回款</a>
+						</li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+				<div class="clear20"></div>
+				<div class="project_list" style="margin-bottom:0;">
+					<ul>
+						<foreach name="list" item="item">
+							<li>
+								<a href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>" target="_blank">
+									<img src="__PUBLIC__/{$item.cover}" style="width:275px;height:200px;">
+								</a>
+								<p class="bt">
+									<a href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>" target="_blank">{$item.title}</a>
+								</p>
+								<p class="zijin ico3">众筹金额： <span>￥{$item.need}</span></p>
+								<p class="jindu1"><span class="jindu2" style="width:0.0%"></span></p>
+								<span class="lb1"><span>￥{$item.had}</span><br>已筹集</span>
+								<span class="lb2"><span>{$item.vote_support}</span><br>支持人数</span>
+								<span class="lb3"><span>已结束 </span><br> 剩余时间</span>
+							</li>
+						</foreach>
+					</ul>
+				</div>
+				<div class="clear"></div>
+				{$page}
+				<!--<div class="tcdPageCode"><span class="disabled">上一页</span><span class="current">1</span><span class="disabled">下一页</span></div>-->
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="wrap_footer"></div>
+		<input value="" type="hidden" id="status">
+		<input value="1" type="hidden" id="totalPage">
+		<input value="1" type="hidden" id="currentPage">
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var totalPage = document.getElementById("totalPage").value;
+			var currentPage = document.getElementById("currentPage").value;
+//				$(".tcdPageCode").createPage({
+//					pageCount: totalPage,
+//					current: currentPage,
+//					backFn: function(currentPage) {
+//						console.log(currentPage);
+//						window.location.href = "/tender/totenderList?status=" + status + "&currentPage=" + currentPage;
+//					}
+//				});
+//				$("#title_c02").addClass("header_nav").siblings.removeClass("header_nav");
+			})
+	</script>
+</block>

@@ -1,0 +1,102 @@
+<?php
+if($_SESSION['admin']){
+	$username=$_SESSION['admin'];
+}
+else{
+	echo '<script>location.href="'.$loginHref.'";</script>';
+}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.2.min.js" ></script>
+		<link rel="stylesheet" href="__PUBLIC__/admin/css/index.css" />
+		<block name="reference">
+			<title>后台管理首页</title>
+		</block>
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul><foreach name="menu" item="item">
+						<li><a href="{$item.href}" class="noSelected {$item.selected}">{$item.title}</a></li>
+					</foreach></ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >{$username}</span>&nbsp;您好！</span>
+					|
+					<a href="{:U('Home/Index/index')}">返回前台</a>
+					|
+					<a href="{:U('Admin/logout')}">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left"><foreach name="subMenu" item="menu1">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a>{$menu1.title}</a>
+							</li>
+							<ul class="subMenu"><foreach name="menu1.list" item="menu2">
+								<li class="{$menu2.selected}"><a href='{$menu2.href}' class="a">{$menu2.title}</a></li>
+							</foreach></ul>
+						</ul>
+					</foreach></div>
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<block name="content">
+						<p class="pageTitle">首页</p>
+						<div class="date">
+							<span class="clock">当前时间：<span>2017-</span><span>8-</span><span>7</span>&nbsp;<span>13:</span><span>13:</span><span>26</span></span>
+						</div>
+						<div class="content-div">
+							<ul>
+								<li class="zc"><a href="#">发起众筹</a></li>
+								<li class="tp">
+									<a href="#">众筹投票</a>
+									<span class="zc_sub">0</span>
+								</li>
+								<li class="rz">
+									<a href="#">实名认证</a>
+									<span class="rz_sub">20</span>
+								</li>
+								<li class="tx">
+									<a href="#">提现审核</a>
+									<span class="zc_sub">0</span>
+								</li>
+								<li class="tz"><a href="#">下发通知</a></li>
+							</ul>
+						</div>
+					</block>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	})	
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	</script>
+</html>

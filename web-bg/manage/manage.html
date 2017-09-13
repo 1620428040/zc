@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>众筹管理</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="css/manage.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">众筹项目管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">发起的项目</a></li>
+								<li><a href='#'>投票中的项目</a></li>
+								<li><a href='#'>出售中的项目</a></li>
+								<li><a href='#'>待回款中的项目</a></li>
+								<li><a href='#'>完成的项目</a></li>
+								<li><a href='#'>流标的项目</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">众筹运营管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">运营规则</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">添加众筹</p>
+					<div class="jiben">
+						<p>基本信息</p>
+					</div>
+					<!--输入input-->
+					<div class="input">
+						<p class="name-p">
+							<span class="name">众筹项目名称：</span>
+							<input type="text" class="inputName" value="第一期项目">
+							<span class="xing">*</span>
+						</p>
+						<p class="name-p">
+							<span class="name">发起人：</span>
+							<select class="selectPerson">
+								<option value="">--请选择--</option>
+								<option value="">18500944312</option>
+								<option value="">188555</option>
+								<option value="">137528300</option>
+							</select>
+							<span class="xing">*</span>
+						</p>
+						<p class="name-p">
+							<span class="name">合作车商：</span>
+							<select class="selectPerson">
+								<option value="">--请选择--</option>
+								<option value="">车众筹金融公司</option>
+								<option value="">吉林车行</option>
+							</select>
+							<span class="xing">*</span>
+						</p>
+						<p class="name-p">
+							<span class="name">众筹类型：</span>
+							<select class="selectPerson">
+								<option value="">普通二手车</option>
+								<option value="">平行进口车</option>
+							</select>
+							<span class="xing">*</span>
+						</p>
+						<p class="name-p">
+							<span class="name">项目金额：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">*（平行进口车项目金额由系统自动计算得出）</span>
+						</p>
+						<p class="name-p">
+							<span class="name">上线：</span>
+							<label><input name="radio" type="radio" value="0"  class="shangxian" checked="checked">有效 </label> 
+							<label><input name="radio" type="radio" value="1" />无效 </label> 
+						</p>
+						<p class="name-p">
+							<span class="name">开始时间：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">*</span>
+						</p>
+						<p class="name-p">
+							<span class="name">集资期限：</span>
+							<select class="selectPerson">
+								<option value="">--请选择--</option>
+								<option value="">5天</option>
+								<option value="">10天</option>
+								<option value="">15天</option>
+								<option value="">30天</option>
+							</select>
+							<span class="xing">*（天）</span>
+						</p>
+						<p class="name-p">
+							<span class="name">众筹最小金额：</span>
+							<select class="selectPerson">
+								<option value="">--请选择--</option>
+								<option value="">10000元</option>
+								
+							</select>
+							<span class="xing">*（元）</span>
+						</p>
+						<p class="name-p">
+							<span class="name">最长持有期限：</span>
+							<select class="selectPerson">
+								<option value="">--请选择--</option>
+								<option value="">40天</option>
+								
+							</select>
+							<span class="xing">*（天）</span>
+						</p>
+						<p class="name-p">
+							<span class="name">分红比例：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">*（该比例为投资人所分红比例,若填写10表示，该次众筹总收益的10%由投资人所分配，90%归平台所有）</span>
+						</p>
+						<p class="name-p">
+							<span class="name">溢价回购利率：</span>
+							<input type="text" class="inputName" value="">
+							<span class="xing">*（溢价回购比率溢价回购投资人所得收益为：投资本金*(溢价率/365)*该众筹最长持有期限)，溢价率即为年化收益率）</span>
+						</p>
+						<p class="name-p">
+							<span class="name">车型：</span>
+							<select class="selectPerson">
+								<option value="">--请选择--</option>
+								<option value="">轿车</option>
+								<option value="">SUV/越野车</option>
+								<option value="">MPV</option>
+								<option value="">跑车</option>
+								<option value="">皮卡</option>
+								<option value="">其他</option>
+							</select>
+							<span class="xing">*</span>
+						</p>
+						<p class="name-p">
+							<span class="name">定向标密码：</span>
+							<input type="password" class="inputName" value="">
+							<span class="xing">(如非定向标则不填)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">待收金额限制：</span>
+							<input type="password" class="inputName" value="">
+							<span class="xing">(如无限制则不填)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">是否可用红包：</span>
+							<label><input name="hongbao" type="radio" value="0"  class="shangxian" checked="checked">可以 </label> 
+							<label><input name="hongbao" type="radio" value="1" />不可以 </label> 
+						</p>
+						<p class="name-p">
+							<span class="name">车辆参数：</span>
+							<input type="password" class="inputName" value="">
+							<span class="xing">(如非定向标则不填)</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	</script>
+</html>

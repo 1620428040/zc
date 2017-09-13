@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会员管理 -身份证代传</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/manage.css" />
+		<link rel="stylesheet" href="css/VIP.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">众筹项目管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">发起的项目</a></li>
+								<li><a href='#'>投票中的项目</a></li>
+								<li><a href='#'>出售中的项目</a></li>
+								<li><a href='#'>待回款中的项目</a></li>
+								<li><a href='#'>完成的项目</a></li>
+								<li><a href='#'>流标的项目</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">众筹运营管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">运营规则</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">身份证信息</p>
+					<div class="jiben">
+						<p>身份证代传</p>
+					</div>
+					<!--输入input-->
+					<div class="input">
+						<p class="name-p">
+							<span class="name">真实姓名：</span>
+							<input type="text" class="inputName" value="苗粉粉">
+						</p>
+						<p class="name-p">
+							<span class="name">身份证号：</span>
+							<input type="text" class="inputName" value="3729*****">
+						</p>
+						<p class="name-p">
+							<span class="name">身份证正面照片：</span>
+							<input type="file" >
+							<span class="card_img">无缩略图</span>
+						</p>
+						<p class="name-p">
+							<span class="name">身份证反面照片：</span>
+							<input type="file" >
+							<span class="card_img">无缩略图</span>
+						</p>
+						<button class="confirm"><a href="#">确定</a></button>
+						<button class="confirm"><a href="vipList.html">返回</a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	</script>
+</html>

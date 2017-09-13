@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文章管理--文章列表</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" />
+		<link rel="stylesheet" href="../moneyCount/css/vipAccount.css" />
+		<link rel="stylesheet" href="../memberManagement/css/VIP.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">文章管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">文章列表</a></li>
+								<li ><a href='#' class="a">文章分类</a></li>
+							
+							</ul>
+							
+	
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">文章管理</p>
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow">搜索/筛选文章</button>
+							<button>合作车商</button>
+							<button>网站公告</button>
+							<button>公司简介</button>
+							<button>名词解释</button>
+							<button>添加文章</button>
+							<button>删除文章</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<div class="search">
+						<p class="searchTitle">搜索/筛选文章&nbsp;<span class="hide">[隐藏]</span></p>
+						<div class="search-input">
+							<p class="input-p">
+								<label><span class="vipname">文章标题：</span><input type="text" value=""></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">所属分类：</span>
+									<select>
+										<option value="">--请选择--</option>
+										<option value="">媒体报道</option>
+										<option value="">合作车商</option>
+										<option value="">网站公告</option>、
+										<option value="">项目动态</option>
+										<option value="">新闻动态</option>
+										<option value="">关于我们</option>
+										<option value="">--公司简介</option>
+										<option value="">--资质证件</option>
+										<option value="">--运营团队</option>
+										<option value="">--办公环境</option>
+										<option value="">--专家顾问</option>
+										<option value="">--合作伙伴</option>
+										<option value="">--政策法规</option>
+										<option value="">--招贤纳士</option>
+										<option value="">--资费说明</option>
+										<option value="">--联系我们	</option>
+										<option value="">--安全保障</option>
+										<option value="">帮助中心</option>
+										<option value="">--新手指引</option>
+									</select>
+									
+							</p>
+							
+							<button class="submit">确定</button>
+						</div>
+					</div>
+					<!--投票中的列表-->
+					<div class="list ">
+						<table class="table"cellpadding="0" cellspacing="0">
+							<tr>
+								<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+								<th>ID</th>
+								<th>文章标题</th>
+								<th>所属栏目</th>
+								<th>所属顺序</th>
+								<th>发布人</th>
+								<th>添加时间</th>
+								<th>操作</th>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>287</td>
+								<td>吉林车行</td>
+								<td>合作车商</td>
+								<td>0</td>
+								<td>苗粉粉</td>
+								<td>2017年8月16日</td>
+								<td>
+									<a href="#" >编辑</a>
+									<a href="#" >删除</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow">搜索/筛选文章</button>
+							<button>合作车商</button>
+							<button>网站公告</button>
+							<button>公司简介</button>
+							<button>名词解释</button>
+							<button>添加文章</button>
+							<button>删除文章</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	$('.searchShow').click(function(){
+		$('.search').show();
+	})
+	$('.hide').click(function(){
+		$('.search').hide();
+	})
+	function search(){
+		if($('.search').css("display")=='none'){
+			$('.search').show();
+			$('.showBottom').text('搜索完毕');
+		}else{
+			$('.search').hide();
+			$('.showBottom').text('搜素/筛选会员');
+
+		}
+	}
+	/*点击调整余额*/
+	$('.balance_click').click(function(){
+		$('.balance').show();
+	})
+	/*点击错号  关闭*/
+	$('.close').click(function(){
+		$('.balance').hide();
+	})
+	</script>
+</html>

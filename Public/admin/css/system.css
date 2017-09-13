@@ -1,0 +1,20 @@
+.container{
+	min-height:720px;
+}
+.contentRight{
+	min-height:680px;
+}
+.color1{
+	color:#coral;
+}
+.color2{
+	color:#7D7D7D;
+}
+.revise_btn{
+	color:#fff;
+	padding:5px 15px 5px 15px;
+	border:none;
+	background:#1F76DF;
+	margin-left:120px;
+	margin-top:20px;
+}

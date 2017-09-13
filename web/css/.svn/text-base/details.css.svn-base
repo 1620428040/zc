@@ -1,0 +1,148 @@
+#box{
+	width:1220px;
+}
+.project_left{
+	width:890px;
+}
+.project_right .invest_bt {
+    width: 280px;
+    text-align: center;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    color: #FFF;
+    border: none;
+    background: #0099CC;
+    font-size: 20px;
+}
+
+.digglist .a1, .digglist .a2 {
+    float: left;
+    width: 80px;
+    height: 30px;
+    display: block;
+}
+.digglist .a1{
+	
+	background: url("../imgs/digg.jpg") no-repeat 0 0;
+}
+.digglist .a1:hover {
+    background: url("../imgs/digg.jpg") no-repeat -85px 0;
+}
+.digglist .a2 {
+    background: url("../imgs/digg.jpg") no-repeat 0 -35px;
+}
+.digglist .a2:hover {
+    background: url("../imgs/digg.jpg") no-repeat -85px -35px;
+}
+.table>tr>td{
+	background:#FFFFFF;
+	text-align: center;
+	width:109px;
+}
+.rowspan{
+	background:#E7ECEE !important;
+	text-align: center !important;
+	width:47px;
+}
+/*奇数*/
+.color4{
+	font-family:微软雅黑;
+	color:#444444;
+	font-weight:bold;
+	font-size:10.5000pt;
+	width:109px;
+	
+}
+/*偶数*/
+.color9{
+	font-family:微软雅黑;
+	color:#999999;
+	font-weight:normal;
+	font-style:normal;
+	font-size:12px;
+	width:100px;
+	
+}
+.table2{
+	border-collapse:collapse;
+	width:615px;
+	border:2px solid #000000;
+}
+.bg1{
+	background:#E7ECEE;
+	text-align: center;
+	width:252px;
+}
+.bg1>p>span{
+	font-family:微软雅黑;
+	color:#444444;
+	font-weight:bold;
+	font-size:14px;
+}
+.bg2{
+	background:#FFFFFF;
+	text-align: center;
+	width:252px;
+}
+.bg2>p>span{
+	font-family:微软雅黑;
+	color:#444444;
+	font-weight:bold;
+	font-size:14px;
+}
+.tab2>p{
+	margin:7px 0px 7px 0px;
+	margin-top:auto;
+	margin-bottom:auto;
+	text-align:center;
+}
+.content-title>span{
+	font-family:Calibri;
+	font-weight:bold;
+	font-size:16px;
+}
+.indent{
+	text-indent:336px;
+	text-align:left;
+}
+.indent>span{
+	font-family:Calibri;
+	font-size:16px;
+}
+.text{
+	text-align: left !important;
+}
+.text>span:nth-child(1){
+	font-family:Calibri;
+	font-weight:bold;
+	font-size:16px;
+}
+.text>span:nth-child(2){
+	font-weight: normal;
+}
+.indet2{
+	text-indent: 24px;
+}
+.indet2>span{
+	font-weight: normal !important;
+}
+.indet2>span>span{
+	font-family: "宋体" !important;
+}
+.font{
+	font-family:Calibri;
+	font-weight:bold;
+	font-size:16px;
+}
+.fontWeight{
+	font-weight: normal;
+}
+.font1{
+	font-family: Calibri;
+	
+}
+.font2{
+	font-family: "宋体";
+}

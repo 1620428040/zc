@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>充值提现-提现申请总列表</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" />
+		<link rel="stylesheet" href="../moneyCount/css/vipAccount.css" />
+		<link rel="stylesheet" href="../memberManagement/css/VIP.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">充值管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">在线充值</a></li>
+								<li ><a href='#' class="a">线下充值待审核</a></li>
+								<li ><a href='#' class="a">线下充值已审核</a></li>
+								<li><a href='#' class="a">充值记录总列表</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">提现管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li  ><a href='#' class="a">待审核提现</a></li>
+								<li ><a href='#' class="a">审核通过，处理中</a></li>
+								<li ><a href='#' class="a">已提现</a></li>
+								<li ><a href='#' class="a">审核未通过</a></li>
+								<li class="sele-li"><a href='#' class="a">提现申请总列表</a></li>
+							</ul>
+							
+	
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">提现管理</p>
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow">搜索提现</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<div class="search">
+						<p class="searchTitle">搜索充值&nbsp;<span class="hide">[隐藏]</span></p>
+						<div class="search-input">
+							<p class="input-p">
+								<label><span class="vipname">会员名：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">提现金额：</span>
+									<select>
+										<option value="">--请选择--</option>
+										<option value="">大于</option>
+										<option value="">等于</option>
+										<option value="">小于</option>
+									</select>
+									<input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">提现时间(开始)：</span><input type="text" value=""><span class="msg"> 只选开始时间则查询从开始时间往后所有</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">提现时间(结束)：</span><input type="text" value=""><span class="msg"> 只选结束时间则查询从结束时间往前所有</span></label>
+							</p>
+							<p class="input-p">
+								<span class="vipname">提现状态：</span>
+								<select>
+									<option value="">--请选择--</option>
+									<option value="">--待审核--</option>
+								</select>
+								<span class="tiaojian">不选则不限</span>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">处理人：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							
+							<button class="submit">确定</button>
+						</div>
+					</div>
+					<!--投票中的列表-->
+					<div class="list ">
+						<table class="table"cellpadding="0" cellspacing="0">
+							<tr>
+								<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+								<th>ID</th>
+								<th>会员名</th>
+								<th>提现金额</th>
+								<th>提现手续费</th>
+								<th>实际到账金额</th>
+								<th>提现信息</th>
+								<th>提现时间</th>
+								<th>提现状态</th>
+								<th>处理人</th>
+								<th>处理时间</th>
+								<th>处理说明</th>
+								<th>操作</th>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>50000  </td>
+								<td>1000</td>
+								<td>49000</td>
+								<td>提现信息</td>
+								<td>2017年8月16日</td>
+								<td>提现成功</td>
+								<td>李四</td>
+								<td>2017年8月16日</td>
+								<td>成功到账</td>
+								<td>
+									<a href="#" >----</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow showBottom" onclick="search();">搜索提现</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<!--关联用户的对话框-->
+					<!--<div class="balance balance_width">
+						<p class="balanceTitle">
+							处理充值
+							<span class="close" >×</span>
+						</p>
+						<p class="balance_tit">充值处理</p>
+						<p class="user_name padding"><span class="user_text">用户名：</span><span>18500944312</span><span>(苗粉粉)</span></p>
+						<p class="user_name padding">
+								<span class="user_text">充值结果：</span>
+								<input type="radio" name="cz" checked="checked">充值成功
+								<input type="radio" name="cz">充值失败
+						</p>
+						<p class="user_name padding">
+							<span class="user_text">打款凭证：</span>
+							<a href="#">
+								<img src="imgs/pay.jpg" class="pingzheng" />
+							</a>
+						</p>
+						<p class="user_name padding"><button class="submit">提交</button></p>
+					</div>-->
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	$('.searchShow').click(function(){
+		$('.search').show();
+	})
+	$('.hide').click(function(){
+		$('.search').hide();
+	})
+	function search(){
+		if($('.search').css("display")=='none'){
+			$('.search').show();
+			$('.showBottom').text('搜索完毕');
+		}else{
+			$('.search').hide();
+			$('.showBottom').text('搜素/筛选会员');
+
+		}
+	}
+	/*点击调整余额*/
+	$('.balance_click').click(function(){
+		$('.balance').show();
+	})
+	/*点击错号  关闭*/
+	$('.close').click(function(){
+		$('.balance').hide();
+	})
+	</script>
+</html>

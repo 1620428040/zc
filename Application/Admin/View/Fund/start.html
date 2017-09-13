@@ -1,0 +1,65 @@
+<extend name="Index/master" />
+<block name="reference">
+	<title>会员管理-会员列表</title>
+	<link rel="stylesheet" href="__PUBLIC__/admin/css/manage.css" />
+	<link rel="stylesheet" href="__PUBLIC__/admin/css/system.css" />
+</block>
+<block name="content">
+	<p class="pageTitle">参数配置</p>
+	<!--输入input-->
+	<form class="input" id="project-form">
+		<p class="name-p">
+			<span class="name">众筹项目名称：</span>
+			<input name="title" type="text" class="inputName" value="众筹项目-">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">目标金额：</span>
+			<input name="need" type="number" class="inputName" value="100000">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">封面图片：</span>
+			<input name="cover" type="text" class="inputName" value="imgs/2016111810370027.jpg">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">预期收益(百分比)：</span>
+			<input name="yield" type="number" class="inputName" value="12">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">开始时间：</span>
+			<input name="start_time" type="datetime" class="inputName" value="2017-07-05 07:30:07">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">筹款时间(天)：</span>
+			<input name="timeLimit" type="number" class="inputName" value="5">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">最长持有期限(天)：</span>
+			<input name="timeMax" type="number" class="inputName" value="40">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">项目详情：</span>
+			<textarea name="details" cols="48" rows="3">此处添加项目详情</textarea>
+			<span class="xing color1"></span>
+		</p>
+		<p class="name-p">
+			<span class="name">合同：</span>
+			<textarea name="contract" cols="48" rows="3">此处添加项目的合同</textarea>
+			<span class="xing color1"></span>
+		</p>
+		<button type="button" class="revise_btn" onclick="startProject();">确定</button>
+	</form>
+	<script type="text/javascript">
+		function startProject(){
+			$.post("{:U('Api/Fund/start')}",$("#project-form").serialize(),function(res){
+				alert(res.info);
+			});
+		}
+	</script>
+</block>

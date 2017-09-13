@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文章管理--文章分类</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" />
+		<link rel="stylesheet" href="../moneyCount/css/vipAccount.css" />
+		<link rel="stylesheet" href="../memberManagement/css/VIP.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">文章管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">文章列表</a></li>
+								<li class="sele-li"><a href='#' class="a">文章分类</a></li>
+							
+							</ul>
+							
+	
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">文章管理</p>
+					<div class="title">
+						<div class="btn">
+							
+							<button>添加分类</button>
+							<button>删除分类</button>
+							<button>批量添加分类</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<!--投票中的列表-->
+					<div class="list ">
+						<table class="table"cellpadding="0" cellspacing="0">
+							<tr>
+								<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+								<th>ID</th>
+								<th>分类名称</th>
+								<th>分类nid</th>
+								<th>分类排序</th>
+								<th>操作</th>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>287</td>
+								<td>合作车商</td>
+								<td>news</td>
+								<td>10</td>
+								<td>
+									<a href="#" >编辑</a>
+									<a href="#" >删除</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="title">
+						<div class="btn">
+							<button>添加分类</button>
+							<button>删除分类</button>
+							<button>批量添加分类</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	$('.searchShow').click(function(){
+		$('.search').show();
+	})
+	$('.hide').click(function(){
+		$('.search').hide();
+	})
+	function search(){
+		if($('.search').css("display")=='none'){
+			$('.search').show();
+			$('.showBottom').text('搜索完毕');
+		}else{
+			$('.search').hide();
+			$('.showBottom').text('搜素/筛选会员');
+
+		}
+	}
+	/*点击调整余额*/
+	$('.balance_click').click(function(){
+		$('.balance').show();
+	})
+	/*点击错号  关闭*/
+	$('.close').click(function(){
+		$('.balance').hide();
+	})
+	</script>
+</html>

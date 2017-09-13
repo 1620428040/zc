@@ -1,0 +1,78 @@
+<extend name="master"/>
+<block name="reference">
+	<title>登陆</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/member.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/login.css" />
+</block>
+<block name="content">
+	<!--Start milile-->
+	<div id="middle">
+		<div id="box">
+			<div class="login">
+				<script>
+					var url = "<?php echo U('Home/User/verify_img').'?action=loginCode&r=';?>" + Math.random();
+				</script>
+				<form name="form" action="/user/finduser" method="post" id="keydown">
+					<input name="forward" value="" style="display:none" type="hilien">
+					<ul>
+						<li><label><input name="userName" id="mobile" placeholder="手机/账户" maxlength="16" class="blur" type="text"> </label></li>
+						<li><label><input name="password" maxlength="20" id="password" placeholder="密码" class="blur" type="password"></label></li>
+						<li><label><input name="code" id="verify_code" class="blur" placeholder="验证码" maxlength="6" style="width:130px;float:left;" type="text"> &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="changeimg(url)"><img src="<?php echo U('Home/User/verify_img').'?action=loginCode';?>" id="code" style="float:right;width:100px;height:30px;" alt="请点击刷新验证码" align="absmiddle" border="0"></a>
+								
+							</a> </label></li>
+						<li><input name="submit" id="submit" value=" 提 交 " type="button" onclick="yanzheng()"></li>
+
+						<li>
+							<a href="">忘记密码?</a>
+							<a href="" style="margin-left:30px;">注册新账号?</a>
+						</li>
+
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="__PUBLIC__/js/register.js"></script>
+	<script type="text/javascript">
+		$(function($) {
+
+			$("#mobile").focus(function() {
+				$(this).attr('class', 'focus');
+			});
+			$("#mobile").blur(function() {
+				$(this).attr('class', 'blur');
+			});
+
+			$("#password").focus(function() {
+				$(this).attr('class', 'focus');
+			});
+
+			$("#password").blur(function() {
+				$(this).attr('class', 'blur');
+			});
+		});
+
+		function yanzheng() { 
+			$.ajax({
+				url: "<?php echo U('User/gologin');?>",
+				type: "post",
+				data: {
+					username: $("#mobile").val(),
+					password: $("#password").val(),
+					imgcode: $("#verify_code").val(),
+				},
+				success: function(data) {
+					if(data.msg === 'success'){
+						location.href="<?php echo U('Home/Index/index');?>";
+					}
+					else{
+						alert(data.msg);
+					}
+				},
+				error: function(data) {
+
+				}
+			})
+		}
+	</script>
+</block>

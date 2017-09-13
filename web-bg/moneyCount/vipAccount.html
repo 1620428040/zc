@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>资金统计-会员账户</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" /> 
+		<link rel="stylesheet" href="css/vipAccount.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">会员账户</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">会员账户</a></li>
+								
+							</ul>
+							<li class="Menu-li">
+								<a href="#">充值提现</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">充值记录</a></li>
+								<li ><a href='#' class="a">提现记录</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">会员资金变动记录</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li><a href='#' class="a">资金记录</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">网站统计记录</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li><a href='#' class="a">网站资金统计</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">会员账户详细</p>
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow">搜素/筛选会员</button>
+							<button>将当前条件下数据导出Excel</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<div class="search">
+						<p class="searchTitle">搜索/筛选会员&nbsp;<span class="hide">[隐藏]</span></p>
+						<div class="search-input">
+							<p class="input-p">
+								<label><span class="vipname">会员名：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">真实姓名：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">可用余额：</span>
+									<select>
+										<option value="">--请选择--</option>
+										<option value="">可用余额</option>
+										<option value="">冻结余额</option>
+										<option value="">待收金额</option>
+									</select>
+									<select>
+										<option value="">--请选择--</option>
+										<option value="">大于</option>
+										<option value="">小于</option>
+										<option value="">等于</option>
+									</select>
+									<input type="text" value="" />
+									<span class="tiaojian">不限则不填</span>
+								</label>
+							</p>
+							<button class="submit">确定</button>
+						</div>
+					</div>
+					<!--投票中的列表-->
+					<div class="list list-width">
+						<table class="table"cellpadding="0" cellspacing="0">
+							<tr>
+								<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+								<th>ID</th>
+								<th>用户名</th>
+								<th>真实姓名</th>
+								<th>总资产</th>
+								<th>可用余额</th>
+								<th>冻结金额</th>
+								<th>待收本金</th>
+								<th>审核提现+手续费</th>
+								<th>处理中提现+手续费</th>
+								<th>累计提现手续费</th>
+								<th>累计充值手续费</th>
+								<th>累计提现金额</th>
+								<th>累计充值金额</th>
+								<th>累计支付佣金</th>
+								<th>累计推广奖励</th>
+								<th>管理员操作资金</th>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								<td>10天</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								<td>10天</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								<td>10天</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								<td>10天</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								<td>10天</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								<td>10天</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>100000</td>
+								<td>10000</td>
+								<td>2017年8月9日</td>
+								<td>10天</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10000元</td>
+								<td>200000元</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+								<td>10</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	$('.searchShow').click(function(){
+		$('.search').show();
+	})
+	$('.hide').click(function(){
+		$('.search').hide();
+	})
+	</script>
+</html>

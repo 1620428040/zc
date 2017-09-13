@@ -1,0 +1,13 @@
+.login{
+	background: #FFF url(../imgs/login-bg.jpg) no-repeat;
+}
+.login a.sctble_display span{
+	background: #FFF url(../imgs/icon_select.gif) no-repeat right 0;
+}
+.sctble_mat a {
+    padding-right: .7em;
+    color: #1972ea;
+    font-weight: bold;
+    display: -webkit-box;
+    padding-left: 10px;
+}

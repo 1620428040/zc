@@ -1,0 +1,178 @@
+*{list-style: none;}
+.contentRight{
+	position: relative;
+	min-height: 680px;
+}
+.balance{
+	width:800px;
+	height:320px;
+	border:5px solid #6C6C6C;
+	border-radius: 5px;
+	position: absolute;
+	top:30%;
+	left:15%;	
+	background: #fff;
+	display: none;
+}
+.balance_width{
+	width:400px;
+	height:250px;
+	left:30%;
+}
+
+.balanceTitle{
+	font-size: 12px;
+	padding:5px;
+	color:#fff;
+	background: #012F51;
+}
+.close{
+	float: right;
+	margin-right:5px;
+	font-size:24px;
+	line-height: 15px;
+	cursor: pointer;
+}
+.balance_tit{
+	font-size: 14px;
+    font-weight: bold;
+    color: #1e325c;
+    line-height: 40px;
+    margin-left:20px;
+    margin-top:10px;
+}
+.user_name{
+	border-bottom:1px dashed #E2E2E2;
+	line-height: 30px;
+	padding-left:100px;
+	font-size: 12px;
+}
+.padding{
+	padding-left:0px;
+}
+.user_text{
+	display: inline-block;
+	width:100px;
+	text-align: right;
+}
+.user_name>span{
+	margin-left:10px;
+	
+}
+.user_name input{
+	width:250px;
+	margin-left:10px;
+}
+.msg{
+	color: #fc8936;
+}
+.confirm{
+	margin-left:150px;
+	margin-top:20px;
+	background: #1F76DF;
+	padding:5px 15px 5px 15px;
+	border:none;
+	color:#fff;
+}
+.confirm>a{
+	color:#fff;
+	text-decoration: none;
+}
+/*修改信息页面*/
+#tabbox{  
+	margin-top:10px;
+}
+.tab_conbox{
+	border-top: none;
+}
+.tab_con{ display:none;}
+
+.tabs{
+	height: 32px;
+	width: 100%;
+	padding-left:80px;
+	border-bottom: 3px solid #9CB8CC;
+}
+.tabs li{
+	list-style:none;
+	height:30px;
+	line-height:30px;
+	float:left;
+	border-left:none;
+	margin-bottom: -1px;
+	background: #9CB8CC;
+	overflow: hidden;
+	position: relative;
+	margin-left:3px;
+	font-size:14px;
+}
+.tabs li a {
+	display: block;
+	padding: 0 20px;
+	outline: none;
+	text-decoration: none;
+ 	color:#fff;
+}
+.tabs .thistab{
+	background: #fff;
+	border-bottom: 3px solid #fff;
+	border-left: 3px solid #9CB8CC;
+	border-top: 3px solid #9CB8CC;
+	border-right: 3px solid #9CB8CC;
+	margin-top:0px !important;
+
+}
+.tabs .thistab a{
+		color:#000 !important;
+}
+.tab_con {
+	padding:12px;
+	font-size: 14px; 
+	line-height:175%;
+}
+.tab_conbox{
+	/*padding-left:80px;*/
+	margin-top:10px;
+}
+.tab_conbox li{
+	
+	
+	font-size:12px;
+}
+.tab_conbox li p{
+	/*padding-left:80px;*/
+	line-height: 40px;
+	border-bottom: 1px dashed #E2E2E2;
+}
+.first-span{
+	width:200px;
+	display: inline-block;
+	text-align: right;
+	line-height: 200%;
+}
+.input_height{
+	width:300px;
+	padding:3px;
+}
+.tab_msg{
+	color:#fc8936;
+	margin-left:10px;
+}
+.cardImg{
+	text-align: left;
+    clear: both;
+    overflow: hidden;
+    width: 290px;
+    height: 100px;
+    display: inline-block;
+}
+.card_img{
+	text-align: left;
+    clear: both;
+    overflow: hidden;
+    width: 290px;
+    height: 100px;
+   display: block;
+   margin-left:200px;
+   /*border: 1px solid red;*/
+}

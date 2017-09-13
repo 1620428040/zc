@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>运营管理-通知信息模板</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" /> 
+		<link rel="stylesheet" href="../moneyCount/css/vipAccount.css" />
+		<link rel="stylesheet" href="../memberManagement/css/VIP.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">参数管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">运营规则</a></li>
+								<li ><a href='#'>合同参数</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">第三方接口</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' >支付接口</a></li>
+								<li ><a href='#' class="a">手机wap支付接口</a></li>
+								<li ><a href='#' class="a">线下充值银行</a></li>
+								<li ><a href='#' class="a">通知信息接口</a></li>
+								<li ><a href='#' class="a">手机信息记录</a></li>
+								<li ><a href='#' class="a">邮箱信息记录</a></li>
+								<li class="sele-li"><a href='#' class="a">通知信息模板</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">在线客服</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">QQ客服管理</a></li>
+								<li ><a href='#' class="a">客服电话管理</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">广告管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">广告管理</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">友情链接</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">友情链接</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">众筹红包</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">自动送红包</a></li>
+								<li ><a href='#' class="a">手动送红包</a></li>
+								<li ><a href='#' class="a">红包记录</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">通知信息模板管理---(#UserName#表示接受信息用户的用户名，是一个动态参数，包含#号整体,表示用户名)</p>
+					<div id="tabbox">
+
+					    <ul class="tabs" id="tabs">
+					       <li><a href="javaScript:void(0)" tab="tab1">邮件模板</a></li>
+					       <li><a href="javaScript:void(0)" tab="tab2">短信模板</a></li>
+					       <li><a href="javaScript:void(0)" tab="tab3">站内信模板</a></li>
+					    </ul>
+					    <ul class="tab_conbox">
+					        <li id="tab1" class="tab_con">
+					            <p>
+					           		<span class="first-span">用户注册成功：</span>
+					           		<textarea cols="60" rows="5">尊敬的'#UserName#'您好！<br>恭喜您注册成功,请点击下面的链接即可完成激活#LINK#<br><div style="text-align:right">客服中心</div></textarea>
+					           		<span class="tab_msg">#LINK#表示激活链接，只在此邮件下有用</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">安全中心更改安全问题：</span>
+					           		<textarea cols="60" rows="5">您的验证码是"#CODE#"</textarea>
+					           		<span class="tab_msg">#CODE#表示验证码</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">安全中心新手机安全码：</span>
+					           		<textarea cols="60" rows="5">您的验证码是"#CODE#"</textarea>
+					           		<span class="tab_msg">#CODE#表示验证码</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">密码找回提示：</span>
+					           		<textarea cols="60" rows="5">您好，点击验证链接#LINK#继续进行密码找回。</textarea>
+					           		<span class="tab_msg">#LINK#表示密码找回链接，只在此邮件下有用</span>
+					           </p>
+					            <p>
+					           		<span class="first-span">支付密码找回提示：</span>
+					           		<textarea cols="60" rows="5">您好，点击验证链接#LINK#继续进行支付密码找回。</textarea>
+					           		<span class="tab_msg">#LINK#表示支付密码找回链接，只在此邮件下有用</span>
+					           </p>
+					           <button class="confirm">确定</button>
+					           	<span class="btn_msg">(所有方式修改提交一次即可)</span>
+					           	<p>#UserName#表示接受信息用户的用户名，是一个动态参数,如" #UserName#你好，恭喜您注册成功",那么用户'test'收到的信息就是 "test你好，恭喜您注册成功"</p>
+					        </li>
+					            
+					        <li id="tab2" class="tab_con">
+					           <p>
+					           		<span class="tab_msg">【注】：模板内容不要太长，不要包含违法关键字，内容结尾请加网站签名，网站签名格式为：【网站名称】，这样可加快邮件接收速度！</span>
+					           </p>
+					           
+					            <p>
+					           		<span class="first-span">线上充值成功：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您#DATE#在线充值的#MONEY#元已到帐【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#DATE#表示充值日期,#MONEY#表示充值金额</span>
+					           		<input type="checkbox" name="chenkbox[]">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">线下充值成功：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您#DATE#在线充值的#MONEY#元已到帐【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#DATE#表示充值日期,#MONEY#表示充值金额</span>
+					           		<input type="checkbox" name="chenkbox[]">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">还款到账：</span>
+					           		<textarea cols="60" rows="5">您#DATA#投资的第#ID#号标第#ORDER#期的还款已到帐,到账金额是#MONEY#元【团尚科技】</textarea>
+					           		<span class="tab_msg">#ID#表示标号,#ORDER#表示期数</span>
+					           		<input type="checkbox" name="chenkbox[]">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">提现成功：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#，您#DATE#的提现#MONEY#已经受理成功【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#DATE#表示提现日期，#MONEY#表示提现金额</span>
+					           		<input type="checkbox" name="chenkbox[]">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">手机验时发送验证码：</span>
+					           		<textarea cols="60" rows="5">您的验证码为#CODE#【团尚科技】</textarea>
+					           		<span class="tab_msg">#CODE#表示验证码</span>
+					           		<!--<input type="checkbox" name="chenkbox[]">开启-->
+					           </p>
+					           <p>
+					           		<span class="first-span">安全中心更改安全问题：</span>
+					           		<textarea cols="60" rows="5">您的验证码为#CODE#【团尚科技】</textarea>
+					           		<span class="tab_msg">#CODE#表示验证码</span>
+					           		<!--<input type="checkbox" name="chenkbox[]">开启-->
+					           </p>
+					           <p>
+					           		<span class="first-span">安全中心更改手机号：</span>
+					           		<textarea cols="60" rows="5">您的验证码为#CODE#【团尚科技】</textarea>
+					           		<span class="tab_msg">#CODE#表示验证码</span>
+					           		<!--<input type="checkbox" name="chenkbox[]">开启-->
+					           </p>
+					            <p>
+					           		<span class="first-span">安全中心新手机验证码：</span>
+					           		<textarea cols="60" rows="5">您的验证码为#CODE#【团尚科技】</textarea>
+					           		<span class="tab_msg">#CODE#表示验证码</span>
+					           		<!--<input type="checkbox" name="chenkbox[]">开启-->
+					           </p>
+					            <p>
+					           		<span class="first-span">众筹投资成功：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您成功对#CROWDNAME#众筹投资#MONEY#元【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#CROWDNAME#表示项目名称,#MONEY#表示投资金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">众筹筹资成功，出售中：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您投资的#CROWDNAME#众筹筹资成功！正在出售中！【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#CROWDNAME#表示项目名称</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">众筹发起投票：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您投资的#CROWDNAME#众筹已发起投票！请尽快登录系统参与投票，到期未参与投票将自动默认赞成票【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#CROWDNAME#表示项目名称</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">众筹投票成功：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您投资的#CROWDNAME#众筹投票成功！投票金额#MONEY#,该众筹正在回款中！【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#CROWDNAME#表示项目名称,#MONEY#表示投票金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">众筹投票失败：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您投资的#CROWDNAME#众筹投票失败！投票金额#MONEY#！【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#CROWDNAME#表示项目名称,#MONEY#表示投票金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">众筹回款到账：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您投资的#CROWDNAME#众筹已回款！到账本金#MONEY#，收益#SYMONEY#！【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#CROWDNAME#表示项目名称,#MONEY#表示到账金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">溢价回购到账：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您投资的#CROWDID#号众筹溢价回购！到账本金#MONEY#，收益#SYMONEY#！【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#ID#表示标号,#MONEY#表示到账金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">众筹预约：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您成功预约金额#MONEY#！【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#MONEY#表示预约金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					           <p>
+					           		<span class="first-span">众筹预约投资：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好，您的预约已成功投资#CROWDNAME#众筹，成功投资金额为#MONEY#元【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#CROWDNAME#表示项目名称,#MONEY#表示投资金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">红包到期提醒：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好,您有#NUM#个红包，将在三天内到期,共#MONEY#元,请您及时使用!【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#NUM#表示红包个数,#MONEY#表示红包总金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					            <p>
+					           		<span class="first-span">投票提醒：</span>
+					           		<textarea cols="60" rows="5">#USERANEM#您好,您投的#CROWDID#众筹投票金额为#MONEY#元,投票时间为#TIME#小时,请尽快前往投票!【团尚科技】</textarea>
+					           		<span class="tab_msg">#USERANEM#表示用户名,#NUM#表示红包个数,#MONEY#表示红包总金额</span>
+					           		<input type="checkbox" name="chenkbox[]" checked="checked">开启
+					           </p>
+					           <button class="confirm">确定</button>
+					           <span class="btn_msg">(所有方式修改提交一次即可)</span>
+					           <p>#UserName#表示接受信息用户的用户名，是一个动态参数,如" #UserName#你好，恭喜您注册成功",那么用户'test'收到的信息就是 "test你好，恭喜您注册成功"</p>
+					        </li>
+					    
+					        <li id="tab3" class="tab_con">
+					            <p>
+					           		<span class="first-span">用户注册成功：</span>
+					           		<textarea cols="60" rows="5">尊敬的'#UserName#'，恭喜您注册成功！</textarea>
+					           </p>
+					           <button class="confirm">确定</button>
+					           <span class="btn_msg">(所有方式修改提交一次即可)</span>
+					           <p>#UserName#表示接受信息用户的用户名，是一个动态参数,如" #UserName#你好，恭喜您注册成功",那么用户'test'收到的信息就是 "test你好，恭喜您注册成功"</p>
+					        </li>
+					    </ul>
+					    
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+
+$(document).ready(function() {
+    jQuery.jqtab = function(tabtit,tabcon) {
+        $(tabcon).hide();
+        $(tabtit+" li:first").addClass("thistab").show();
+        $(tabcon+":first").show();
+    
+        $(tabtit+" li").click(function() {
+            $(tabtit+" li").removeClass("thistab");
+            $(this).addClass("thistab");
+            $(tabcon).hide();
+            var activeTab = $(this).find("a").attr("tab");
+            $("#"+activeTab).fadeIn();
+            return false;
+        });
+        
+    };
+    /*调用方法如下：*/
+    $.jqtab("#tabs",".tab_con");
+    
+});
+	
+	</script>
+</html>

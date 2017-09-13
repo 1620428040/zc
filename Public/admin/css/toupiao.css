@@ -1,0 +1,23 @@
+.contentRight{
+	width:85%;
+}
+.table{
+	width: 100%;
+	height:100%;
+	
+	padding:10px;
+	font-size: 12px;
+	
+}
+.table th{
+	font-weight: none;
+	border:1px solid #c1c8d2;
+	color:#7d7d7d;
+	background: #F1F1F1;
+	
+}
+.table td{
+	text-align: center;
+	padding:5px;
+	border-bottom:1px solid #c1c8d2;
+}

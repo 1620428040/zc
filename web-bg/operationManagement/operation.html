@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>运营管理--运营股则</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/manage.css" />
+		<link rel="stylesheet" href="css/operation.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">参数管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">运营规则</a></li>
+								<li><a href='#'>合同参数</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">第三方接口</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' >支付接口</a></li>
+								<li ><a href='#' class="a">手机wap支付接口</a></li>
+								<li ><a href='#' class="a">线下充值银行</a></li>
+								<li ><a href='#' class="a">通知信息接口</a></li>
+								<li ><a href='#' class="a">手机信息记录</a></li>
+								<li ><a href='#' class="a">邮箱信息记录</a></li>
+								<li ><a href='#' class="a">通知信息模板</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">在线客服</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">QQ客服管理</a></li>
+								<li ><a href='#' class="a">客服电话管理</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">广告管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">广告管理</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">友情链接</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">友情链接</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">众筹红包</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">自动送红包</a></li>
+								<li ><a href='#' class="a">手动送红包</a></li>
+								<li ><a href='#' class="a">红包记录</a></li>
+							</ul>
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">参数配置</p>
+					<div class="tit">
+						<p>费用规则</p>
+					</div>
+					<div class="input">
+						<p class="name-p">
+							<span class="name">提现手续费：</span>
+							<input type="text" class="inputName" value="0|50-500">
+							<span class="xing br">以10-50|0-0|3-30的形式填入，数字从左到右依次表示超出回款资金总额的每笔收取总额的千分之10作为手续费,最大手续费上限50元;<br/>提现在回款总金额内的每笔收费千分之0元，手续费上限0元;单日单笔提现上限3万,单日提现资金上限30万;<br>如果填写形式为10|5-50,表示提现手续费为10元,单笔提现限额为5万,单日提现资金上限50万;(fee_tqtx)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">实名认证费用：：</span>
+							<input type="text" class="inputName" value="0">
+							<span class="xing color2">(fee_idcard)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">回款投标自动奖励：</span>
+							<input type="text" class="inputName" value="1">
+							<span class="xing br">以1的形式填入,表示回款续投奖励为使用回款金额的千分之一,如果投资金额大于回款资金池金额，有效续投奖励以回款金额资金池总额为标准，否则以投资金额为准,此规则只针对手动投资有效(today_reward)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">邀请线下奖励：</span>
+							<input type="text" class="inputName" value="0">
+							<span class="xing color2">填入整数，如2表示千分之二,即你所邀请的下线每投标成功一次，您可获得投标收益的千分之二的奖励(award_invest)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">线下充值奖励：</span>
+							<input type="text" class="inputName" value="5000-10000|2|10001-30000|5|30001|8">
+							<span class="xing br">填入5000-10000|1|10001-30000|1.5|30001|2 表示，线下充值金额在5000至10000以内的奖励千分之1，在10000至30000以内的奖励千分之1.5，大于30000时奖励千分之2(offline_reward)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">银行卡修改开关：</span>
+							<input type="text" class="inputName" value="0">
+							<span class="xing color2">1表示可以修改，0表示不可以修改(edit_bank)</span>
+						</p>
+						<p class="name-p">
+							<span class="name">是否开启手动手机验证：</span>
+							<input type="text" class="inputName" value="0">
+							<span class="xing color2">0代表不开启，则由系统自动向会员发送手机验证码；1代表开启，表示由管理员在后台手动审核会员的手机验证</span>
+						</p>
+						<p class="name-p">
+							<span class="name">是否开启短信发送图形验证码：</span>
+							<input type="text" class="inputName" value="1">
+							<span class="xing br">0代表不开启，不需要输入图形验证码即可发送手机验证码；1代表开启，表示需要输入图形验证码才可发送手机验证码(is_phone_code)</span>
+						</p>
+						<button class="revise_btn">修改</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	</script>
+</html>

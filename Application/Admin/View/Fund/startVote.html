@@ -1,0 +1,35 @@
+<extend name="Index/master" />
+<block name="reference">
+	<title>会员管理-会员列表</title>
+	<link rel="stylesheet" href="__PUBLIC__/admin/css/manage.css" />
+	<link rel="stylesheet" href="__PUBLIC__/admin/css/system.css" />
+</block>
+<block name="content">
+	<p class="pageTitle">投票设置</p>
+	<!--输入input-->
+	<form class="input" id="project-form">
+        <input type="hidden" name="pid" value="{$project.id}">
+        <p class="name-p">
+            <span class="name">项目名称：</span>
+            <input name="title" type="text" class="inputName" value="{$project.title}" disabled/>
+        </p>
+		<p class="name-p">
+			<span class="name">出售金额：</span>
+			<input name="money" type="number" class="inputName" value="100000">
+			<span class="xing color1">*</span>
+		</p>
+		<p class="name-p">
+			<span class="name">投票时间(天)：</span>
+			<input name="timeLimit" type="number" class="inputName" value="10">
+			<span class="xing color1">*</span>
+		</p>
+		<button type="button" class="revise_btn" onclick="startVote();">确定</button>
+	</form>
+	<script type="text/javascript">
+		function startVote(){
+			$.post("{:U('Api/Fund/startVote')}",$("#project-form").serialize(),function(res){
+				alert(res.info);
+			});
+		}
+	</script>
+</block>

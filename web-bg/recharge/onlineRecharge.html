@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>充值提现-在线充值</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../manage/css/toupiao.css" />
+		<link rel="stylesheet" href="../moneyCount/css/vipAccount.css" />
+		<link rel="stylesheet" href="../memberManagement/css/VIP.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部-->
+			<div class="header">
+				<div class="logo">
+					<img src="" />
+					<span class="logoName">亿资众筹</span>
+				</div>
+				<div class="headNav">
+					<ul>
+						<li><a href="javaScript:void(0)" class="noSelected selected">首页</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">众筹管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">资金统计</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">会员管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">充值提现</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">文章管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">系统管理</a></li>
+						<li><a href="javaScript:void(0)" class="noSelected">运营管理</a></li>
+					</ul>
+				</div>
+				<div class="headRight">
+					<span class="userName"><span >test</span>&nbsp;您好！</span>
+					|
+					<a href="#">返回前台</a>
+					|
+					<a href="#">退出</a>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="content">
+				<!--左边菜单栏-->
+				<div class="contentLeft">
+					<div class="left">
+						<ul class="parentMenu">
+							<li class="Menu-li">
+								<a href="#">充值管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li class="sele-li"><a href='#' class="a">在线充值</a></li>
+								<li ><a href='#' class="a">线下充值待审核</a></li>
+								<li ><a href='#' class="a">线下充值已审核</a></li>
+								<li ><a href='#' class="a">充值记录总列表</a></li>
+							</ul>
+							<li class="Menu-li">
+								<a href="#">提现管理</a>
+								
+							</li>
+							<ul class="subMenu">
+								<li ><a href='#' class="a">待审核提现</a></li>
+								<li ><a href='#' class="a">审核通过，处理中</a></li>
+								<li ><a href='#' class="a">已提现</a></li>
+								<li ><a href='#' class="a">审核未通过</a></li>
+								<li ><a href='#' class="a">提现申请总列表</a></li>
+							</ul>
+							
+	
+						</ul>
+					</div>
+					
+				</div>
+				<!--右边内容区-->
+				<div class="contentRight">
+					<p class="pageTitle">线上充值列表</p>
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow">搜索充值</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<div class="search">
+						<p class="searchTitle">搜索充值&nbsp;<span class="hide">[隐藏]</span></p>
+						<div class="search-input">
+							<p class="input-p">
+								<label><span class="vipname">会员名：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">处理人：</span><input type="text" value=""><span class="tiaojian">不限则不填</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">充值状态：</span>
+									<input type="radio" name="cz" checked="checked">充值未完成
+									<input type="radio" name="cz" >充值成功
+									<input type="radio" name="cz" >签名不符
+									<input type="radio" name="cz" >充值失败
+									<input type="radio" name="cz" >不限
+									<span class="tiaojian">不限则不填</span>
+								</label>
+							</p>
+							<p class="input-p">
+								<span class="vipname">充值方式：</span>
+								<select>
+									<option value="">--请选择--</option>
+									<option value="">--线下充值--</option>
+									<option value="">--国付宝--</option>
+									<option value="">--环迅支付--</option>
+									<option value="">--国银在线--</option>
+									<option value="">--宝付--</option>
+									<option value="">--盛付通--</option>
+									<option value="">--财付通--</option>
+									<option value="">--汇潮支付--</option>
+									<option value="">--易生支付--</option>
+									<option value="">--中国移动支付--</option>
+									<option value="">--通联支付--</option>
+								</select>
+								<span class="tiaojian">不选则不限</span>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">时间从：</span><input type="text" value=""><span class="msg"> 时间段</span></label>
+							</p>
+							<p class="input-p">
+								<label><span class="vipname">到：</span><input type="text" value=""><span class="msg"> 时间段</span></label>
+							</p>
+							
+							<button class="submit">确定</button>
+						</div>
+					</div>
+					<!--投票中的列表-->
+					<div class="list ">
+						<table class="table"cellpadding="0" cellspacing="0">
+							<tr>
+								<th><label><input type="checkbox" name="xuanze[]" value=""></label></th>
+								<th>ID</th>
+								<th>会员名</th>
+								<th>充值方式</th>
+								<th>充值金额</th>
+								<th>充值时间</th>
+								<th>充值状态</th>
+								<th>对账订单号</th>
+								<th>操作</th>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>通联支付  </td>
+								<td>10000</td>
+								<td>2017年8月15日</td>
+								<td>充值成功</td>
+								<td>20174124566</td>
+								<td>
+									<a href="#">----</a>
+								</td>
+							</tr>
+							<tr>
+								<td><label><input type="checkbox" name="xuanze[]" value=""></label></td>
+								<td>123456</td>
+								<td>张三</td>
+								<td>通联支付  </td>
+								<td>10000</td>
+								<td>2017年8月15日</td>
+								<td>充值成功</td>
+								<td>20174124566</td>
+								<td>
+									<a href="#">----</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="title">
+						<div class="btn">
+							<button class="searchShow showBottom" onclick="search();">搜索充值</button>
+						</div>
+						<div class="pagenum">
+							<span>上一页</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>上一页</span>
+						</div>
+					</div>
+					<!--关联用户的对话框-->
+					<div class="balance balance_width">
+						<p class="balanceTitle">
+							关联用户
+							<span class="close" >×</span>
+						</p>
+						<p class="balance_tit">关联用户</p>
+						<p class="user_name padding"><span class="user_text">关联用户：</span><span>18500944312</span><span>(苗粉粉)</span></p>
+						<p class="user_name padding"><span class="user_text">关联用户名：</span><input type="text"></p>
+						<p class="user_name padding"><button class="submit">提交</button></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$('.content').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$(function(){
+		$('.contentLeft').css({
+			height:$(window).height()-80+'px'
+		})
+	})
+	$(function(){
+		$('.contentRight').css({
+			height:$(window).height()-80+'px'
+		})
+	}) 
+	$('.Menu-li').click(function(){
+		$(".subMenu").toggle();
+
+	})
+	$('.searchShow').click(function(){
+		$('.search').show();
+	})
+	$('.hide').click(function(){
+		$('.search').hide();
+	})
+	function search(){
+		if($('.search').css("display")=='none'){
+			$('.search').show();
+			$('.showBottom').text('搜索完毕');
+		}else{
+			$('.search').hide();
+			$('.showBottom').text('搜素/筛选会员');
+
+		}
+	}
+	</script>
+</html>
