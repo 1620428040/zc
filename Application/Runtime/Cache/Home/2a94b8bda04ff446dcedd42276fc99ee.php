@@ -14,7 +14,9 @@
 		<script type="text/javascript" src="/zc/Public/js/jquery-1.8.2.min.js" ></script>
 		
 	<title>首页</title>
-	<link rel="stylesheet" href="/zc/Public/css/banner.css" />
+    <link rel="stylesheet" href="/zc/Public/css/banner.css" />
+    <!-- <link rel="stylesheet" href="/zc/Public/circliful/css/jquery.circliful.css">
+    <script src="/zc/Public/circliful/js/jquery.circliful.min.js"></script> -->
 
 	</head>
 
@@ -134,12 +136,22 @@ if(session('username')){ ?>
 				<div class="biao_main" style="display: block;">
 					<?php if(is_array($prepare)): foreach($prepare as $key=>$item): ?><div class="xiangmu">
 							<div class="biao_zht">
-								<!--<img src="/zc/Public/imgs/ico_ywc.png">-->
+								
 							</div>
 							<img src="/zc/Public/<?php echo ($item["cover"]); ?>">
 							<div class="biao_conent">
-								<div class="myStat2 circliful" data-dimension="110" data-text="<?php echo ($item["progress"]); ?>%" data-info="New Clients" data-width="9" data-fontsize="14" data-percent="0.0" data-fgcolor="#fdb63f" data-bgcolor="#eee" style="width: 110px;">
-									<span class="circle-text" style="line-height: 110px; font-size: 14px;"><?php echo ($item["progress"]); ?>%</span>
+                                <div 
+                                class="myStat2 circliful" 
+                                data-dimension="110" 
+                                data-text="<?php echo ($item["progress"]); ?>%" 
+                                data-info="New Clients" 
+                                data-width="9" 
+                                data-fontsize="14" 
+                                data-percent="0.0" 
+                                data-fgcolor="#fdb63f" 
+                                data-bgcolor="#eee" style="width: 110px;">
+                                    <span class="circle-text" 
+                                    style="line-height: 110px; font-size: 14px;"><?php echo ($item["progress"]); ?>%</span>
 									<canvas width="110" height="110"></canvas>
 								</div>
 								<div class="biao_conent_title">
@@ -152,11 +164,11 @@ if(session('username')){ ?>
 									<div class="biao_show_left">
 										<p>投资金额：<span>￥<?php echo ($item["need"]); ?></span></p>
 										<p>已筹金额：<span>￥<?php echo ($item["had"]); ?></span></p>
-										<p>支持人数：<span><?php echo ($item["vote_support"]); ?>人</span></p>
+										<p>支持人数：<span><?php echo ($item["support"]); ?>人</span></p>
 									</div>
 									<div class="biao_show_right">
-										<p>剩余时间</p>
-										<p>已结束</p>
+										<p><?php echo ($item["residue"]); ?></p>
+										<p><?php echo ($item["statusDesc"]); ?></p>
 									</div>
 									<div class="clear"></div>
 									<a class="yincang_btn" href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>">查看详情</a>
@@ -167,50 +179,156 @@ if(session('username')){ ?>
 			</div>
 			<!--众筹列表-->
 			<div class="clear"></div>
-			<div class="biao" id="list">
-				<div class="biaoti">众筹列表</div>
-				<div class="biao_title">
-					<ul>
-						<a href="<?php echo U('Home/Index/index#list');?>"><li <?php if(!$status) echo 'class="biao_select"'?>>全部项目</li></a>
-						<a href="<?php echo U('Home/Index/index#list','status=run');?>"><li <?php if($status=='run') echo 'class="biao_select"'?>>众筹中</li></a>
-						<a href="<?php echo U('Home/Index/index#list','status=sell');?>"><li <?php if($status=='sell') echo 'class="biao_select"'?>>出售中</li></a>
-						<a href="<?php echo U('Home/Index/index#list','status=complete');?>"><li <?php if($status=='complete') echo 'class="biao_select"'?>>已出售</li></a>
-					</ul>
-				</div>
-				<div class="clear"></div>
-				<div class="biao_main" style="display: block;">
-					<?php if(is_array($list)): foreach($list as $key=>$item): ?><div class="xiangmu">
-							<div class="biao_zht">
-								<!--<img src="/zc/Public/imgs/ico_ywc.png">-->
-							</div>
-							<img src="/zc/Public/<?php echo ($item["cover"]); ?>">
-							<div class="biao_conent">
-								<div class="myStat2 circliful" data-dimension="110" data-text="<?php echo ($item["progress"]); ?>%" data-info="New Clients" data-width="9" data-fontsize="14" data-percent="0.0" data-fgcolor="#fdb63f" data-bgcolor="#eee" style="width: 110px;">
-									<span class="circle-text" style="line-height: 110px; font-size: 14px;"><?php echo ($item["progress"]); ?>%</span>
-									<canvas width="110" height="110"></canvas>
-								</div>
-								<div class="biao_conent_title">
-									<h3><?php echo ($item["title"]); ?></h3>
-									<p>预计年化收益率<span><?php echo ($item["yield"]); ?>%</span></p>
-								</div>
-								<div class="clear"></div>
-								<div class="hengxian_xu"></div>
-								<div class="biao_show">
-									<div class="biao_show_left">
-										<p>投资金额：<span>￥<?php echo ($item["need"]); ?></span></p>
-										<p>已筹金额：<span>￥<?php echo ($item["had"]); ?></span></p>
-										<p>支持人数：<span><?php echo ($item["vote_support"]); ?>人</span></p>
-									</div>
-									<div class="biao_show_right">
-										<p>剩余时间</p>
-										<p>已结束</p>
-									</div>
-									<div class="clear"></div>
-									<a class="yincang_btn" href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>">查看详情</a>
-								</div>
-							</div>
-						</div><?php endforeach; endif; ?>
-				</div>
+			<div class="biao">
+					<div class="biaoti">众筹预告</div>
+					<div class="biao_title">
+						<ul class="biao_ul" style="display: block;">
+							<li class="biao_select">全部项目</li>
+							<li>众筹中</li>
+							<li>出售中</li>
+							<li>已出售</li>
+						</ul>
+					</div>
+                    <div class="clear"></div>
+                    <div class="biao_main_wrap">
+                        <div class="biao_main" style="display: block;">
+                            <?php if(is_array($project)): foreach($project as $key=>$item): ?><div class="xiangmu">
+                                    <div class="biao_zht">
+                                        <?php if(($item["status"]) == "complete"): ?><img src="/zc/Public/imgs/ico_ywc.png"><?php endif; ?>
+                                    </div>
+                                    <img src="/zc/Public/<?php echo ($item["cover"]); ?>">
+                                    <div class="biao_conent">
+                                        <div class="myStat2 circliful" data-dimension="110" data-text="<?php echo ($item["progress"]); ?>%" data-info="New Clients" data-width="9" data-fontsize="14" data-percent="0.0" data-fgcolor="#fdb63f" data-bgcolor="#eee" style="width: 110px;">
+                                            <span class="circle-text" style="line-height: 110px; font-size: 14px;"><?php echo ($item["progress"]); ?>%</span>
+                                            <canvas width="110" height="110"></canvas>
+                                        </div>
+                                        <div class="biao_conent_title">
+                                            <h3><?php echo ($item["title"]); ?></h3>
+                                            <p>预计年化收益率<span><?php echo ($item["yield"]); ?>%</span></p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="hengxian_xu"></div>
+                                        <div class="biao_show">
+                                            <div class="biao_show_left">
+                                                <p>投资金额：<span>￥<?php echo ($item["need"]); ?></span></p>
+                                                <p>已筹金额：<span>￥<?php echo ($item["had"]); ?></span></p>
+                                                <p>支持人数：<span><?php echo ($item["support"]); ?>人</span></p>
+                                            </div>
+                                            <div class="biao_show_right">
+                                                <p><?php echo ($item["residue"]); ?></p>
+                                                <p><?php echo ($item["statusDesc"]); ?></p>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <a class="yincang_btn" href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>">查看详情</a>
+                                        </div>
+                                    </div>
+                                </div><?php endforeach; endif; ?>
+                        </div>
+                        <!-- 众筹中 -->
+						<div class="biao_main">
+                            <?php if(is_array($fund)): foreach($fund as $key=>$item): ?><div class="xiangmu">
+                                    <div class="biao_zht">
+                                        <?php if(($item["status"]) == "complete"): ?><img src="/zc/Public/imgs/ico_ywc.png"><?php endif; ?>
+                                    </div>
+                                    <img src="/zc/Public/<?php echo ($item["cover"]); ?>">
+                                    <div class="biao_conent">
+                                        <div class="myStat2 circliful" data-dimension="110" data-text="<?php echo ($item["progress"]); ?>%" data-info="New Clients" data-width="9" data-fontsize="14" data-percent="0.0" data-fgcolor="#fdb63f" data-bgcolor="#eee" style="width: 110px;">
+                                            <span class="circle-text" style="line-height: 110px; font-size: 14px;"><?php echo ($item["progress"]); ?>%</span>
+                                            <canvas width="110" height="110"></canvas>
+                                        </div>
+                                        <div class="biao_conent_title">
+                                            <h3><?php echo ($item["title"]); ?></h3>
+                                            <p>预计年化收益率<span><?php echo ($item["yield"]); ?>%</span></p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="hengxian_xu"></div>
+                                        <div class="biao_show">
+                                            <div class="biao_show_left">
+                                                <p>投资金额：<span>￥<?php echo ($item["need"]); ?></span></p>
+                                                <p>已筹金额：<span>￥<?php echo ($item["had"]); ?></span></p>
+                                                <p>支持人数：<span><?php echo ($item["support"]); ?>人</span></p>
+                                            </div>
+                                            <div class="biao_show_right">
+                                                <p><?php echo ($item["residue"]); ?></p>
+                                                <p><?php echo ($item["statusDesc"]); ?></p>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <a class="yincang_btn" href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>">查看详情</a>
+                                        </div>
+                                    </div>
+                                </div><?php endforeach; endif; ?>
+                        </div>
+                        
+                        <!--出售中-->
+                        <div class="biao_main">
+                            <?php if(is_array($sell)): foreach($sell as $key=>$item): ?><div class="xiangmu">
+                                    <div class="biao_zht">
+                                        <?php if(($item["status"]) == "complete"): ?><img src="/zc/Public/imgs/ico_ywc.png"><?php endif; ?>
+                                    </div>
+                                    <img src="/zc/Public/<?php echo ($item["cover"]); ?>">
+                                    <div class="biao_conent">
+                                        <div class="myStat2 circliful" data-dimension="110" data-text="<?php echo ($item["progress"]); ?>%" data-info="New Clients" data-width="9" data-fontsize="14" data-percent="0.0" data-fgcolor="#fdb63f" data-bgcolor="#eee" style="width: 110px;">
+                                            <span class="circle-text" style="line-height: 110px; font-size: 14px;"><?php echo ($item["progress"]); ?>%</span>
+                                            <canvas width="110" height="110"></canvas>
+                                        </div>
+                                        <div class="biao_conent_title">
+                                            <h3><?php echo ($item["title"]); ?></h3>
+                                            <p>预计年化收益率<span><?php echo ($item["yield"]); ?>%</span></p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="hengxian_xu"></div>
+                                        <div class="biao_show">
+                                            <div class="biao_show_left">
+                                                <p>投资金额：<span>￥<?php echo ($item["need"]); ?></span></p>
+                                                <p>已筹金额：<span>￥<?php echo ($item["had"]); ?></span></p>
+                                                <p>支持人数：<span><?php echo ($item["support"]); ?>人</span></p>
+                                            </div>
+                                            <div class="biao_show_right">
+                                                <p><?php echo ($item["residue"]); ?></p>
+                                                <p><?php echo ($item["statusDesc"]); ?></p>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <a class="yincang_btn" href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>">查看详情</a>
+                                        </div>
+                                    </div>
+                                </div><?php endforeach; endif; ?>
+                        </div>
+                        
+                        <!--已出售-->
+                        <div class="biao_main">
+                            <?php if(is_array($complete)): foreach($complete as $key=>$item): ?><div class="xiangmu">
+                                    <div class="biao_zht">
+                                        <?php if(($item["status"]) == "complete"): ?><img src="/zc/Public/imgs/ico_ywc.png"><?php endif; ?>
+                                    </div>
+                                    <img src="/zc/Public/<?php echo ($item["cover"]); ?>">
+                                    <div class="biao_conent">
+                                        <div class="myStat2 circliful" data-dimension="110" data-text="<?php echo ($item["progress"]); ?>%" data-info="New Clients" data-width="9" data-fontsize="14" data-percent="0.0" data-fgcolor="#fdb63f" data-bgcolor="#eee" style="width: 110px;">
+                                            <span class="circle-text" style="line-height: 110px; font-size: 14px;"><?php echo ($item["progress"]); ?>%</span>
+                                            <canvas width="110" height="110"></canvas>
+                                        </div>
+                                        <div class="biao_conent_title">
+                                            <h3><?php echo ($item["title"]); ?></h3>
+                                            <p>预计年化收益率<span><?php echo ($item["yield"]); ?>%</span></p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="hengxian_xu"></div>
+                                        <div class="biao_show">
+                                            <div class="biao_show_left">
+                                                <p>投资金额：<span>￥<?php echo ($item["need"]); ?></span></p>
+                                                <p>已筹金额：<span>￥<?php echo ($item["had"]); ?></span></p>
+                                                <p>支持人数：<span><?php echo ($item["support"]); ?>人</span></p>
+                                            </div>
+                                            <div class="biao_show_right">
+                                                <p><?php echo ($item["residue"]); ?></p>
+                                                <p><?php echo ($item["statusDesc"]); ?></p>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <a class="yincang_btn" href="<?php echo U('Home/Index/details',"id=".$item["id"]);?>">查看详情</a>
+                                        </div>
+                                    </div>
+                                </div><?php endforeach; endif; ?>
+                        </div>
+                    </div>
 			</div>
 			<!--新闻排行榜-->
 			<div class="xinwen">
@@ -222,7 +340,10 @@ if(session('username')){ ?>
 				<div class="xinwen_main">
 					<div class="hengxian_shi"></div>
 					<ul>
-
+                        <?php if(is_array($evolve)): foreach($evolve as $key=>$item): ?><li>
+                                <a href="/news/newdetail?newsId=43"><?php echo ($item["title"]); ?> <?php echo ($item["content"]); ?></a>
+                                <span><?php echo ($item["time"]); ?></span>
+                            </li><?php endforeach; endif; ?>
 					</ul>
 				</div>
 			</div>
@@ -243,8 +364,24 @@ if(session('username')){ ?>
 
 					</ul>
 				</div>
+            </div>
+            <div class="xinwen">
+				<div class="xinwen_title">
+					<span class="xmdt">投资排行榜</span>
+					<a href="/news/new?flag=trailer">更多&gt;&gt;</a>
+				</div>
+				<div class="clear"></div>
+				<div class="xinwen_main">
+					<div class="hengxian_shi"></div>
+					<ul>
+                        <?php if(is_array($fund)): foreach($fund as $key=>$item): ?><li>
+                                <a href="/news/newdetail?newsId=43"><?php echo ($item["username"]); ?></a>
+                                <span><?php echo ($item["money"]); ?>元</span>
+                            </li><?php endforeach; endif; ?>
+					</ul>
+				</div>
 			</div>
-			<div class="paihang">
+			<!-- <div class="paihang">
 				<div class="paihang_title">
 					<span class="xmdt">投资排行榜</span>
 					<ul>
@@ -273,7 +410,7 @@ if(session('username')){ ?>
 				</bdi>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div> -->
 		</div>
 		<!--合作伙伴-->
 		<div class="hzhb">
@@ -329,7 +466,13 @@ if(session('username')){ ?>
 			speed:800, //移动速度0.8秒
 			mousewheel:true, //是否开启鼠标滚轮控制
 			direkey:true //是否开启左右箭头方向控制
-		});
+        });
+        $('.biao_ul').find('li').click(function(){
+			var index = $(this).index();
+			$(this).addClass('biao_select').siblings().removeClass('biao_select');
+			$('.biao_main_wrap').find('.biao_main').eq(index).show().siblings().hide();
+        });
+        //$('.myStat2').circliful();
 	</script>
 
 		

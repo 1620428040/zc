@@ -35,12 +35,11 @@ class FundController extends AdminController {
 	//众筹运营管理
     public function rule(){
 		$this->display("Index/null");
-	}
+    }
     
-	//绑定项目列表
+    //绑定项目列表
 	public function assignProjectList($num,$status){
 		$model = D('Project');
-		$view = M('ProjectView');
         if(!$status){
             $where="";
         }
@@ -49,8 +48,8 @@ class FundController extends AdminController {
             $where=$model->getWhereWithStatus($status);
         }
 		$page = CustomPage::defaultPage($count,$num);
-        $count = $view -> where($where) -> count();
-        $result = $view -> where($where) -> limit($page->firstRow,$page->listRows) -> select();
+        $count = $model -> where($where) -> count();
+        $result = $model -> where($where) -> limit($page->firstRow,$page->listRows) -> selectFormView();
 		$this->assign('page',$page->show());
         $this->assign("list",$result);
     }

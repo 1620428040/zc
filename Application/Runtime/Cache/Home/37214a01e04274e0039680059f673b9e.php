@@ -163,8 +163,11 @@ if(session('username')){ ?>
 								<div class="jindu2" id="jindu2" w="<?php echo ($project["progress"]); ?>" style="width: 0%;"></div>
 							</div>
 							<div class="time">
-								<span class="rs">支持人数：<em><?php echo ($project["vote_support"]); ?></em></span> 剩余时间：
-								
+                                <span class="rs">支持人数：<em><?php echo ($project["support"]); ?></em></span> 
+                                剩余时间：
+                                <span id="timer1" end-date="<?php echo ($project["endTime"]); ?>" now-date="<?php echo ($project["nowTime"]); ?>">
+                                    <font>已结束</font>
+                                </span>
 								<script>
 									$("#timer1").oaoTime();
 								</script>
@@ -183,7 +186,6 @@ if(session('username')){ ?>
 							<p style="margin:0;">
 								账户余额：
 								<a href="<?php echo U('Home/Index/login');?>">登录可见</a>
-
 							</p>
 							<p id="tbinput" style="margin-top:0;">
 								<span style="font-size:14px; color:#666; float:left">验证码：</span>
@@ -197,10 +199,9 @@ if(session('username')){ ?>
 								<span style="font-size:14px; color:#666; float:left">安全密码：</span><input name="paypwd" maxlength="16" style="width:90px; margin-top:5px; float:left;" type="password">
 							</p>
 							<p style="margin:0;">
-                                <!-- <input class="invest_bt" value="已回款" style=" background:#ddd;" disabled="disabled" type="button"> -->
-								<input class="invest_bt" value="确认" style=" background:#F15315;" type="button" onclick="submit_toubiao();"/>
-								<input onclick="window.location.href='/crowdfunding/reservation?status=3'" id="invest_bt" class="invest_bt" value="我要预约" type="button" style="float:right;width:130px;border-radius:3px;background:#D90023;"/>
-
+<?php
+if($project["status"]==="run"){ if(strtotime($project["begin_time"])<=time()){ echo '<input class="invest_bt" value="确认" style=" background:#F15315;" type="button" onclick="submit_toubiao();"/>'; } else{ echo '<input class="invest_bt" value="众筹尚未开始" style=" background:#ddd;" disabled="disabled" type="button">'; } } else{ echo '<input class="invest_bt" value="已结束众筹" style=" background:#ddd;" disabled="disabled" type="button">'; } ?>
+								<!-- <input onclick="window.location.href='/crowdfunding/reservation?status=3'" id="invest_bt" class="invest_bt" value="我要预约" type="button" style="float:right;width:130px;border-radius:3px;background:#D90023;"/> -->
 							</p>
 						</form>
 					</div>
@@ -208,18 +209,19 @@ if(session('username')){ ?>
 					<div class="project_b">
 						<h3>投票详情</h3>
 						<div class="diggnr">
-							未开始投票
+                        <?php
+ if($vote){ if($vote["status"]==="success"){ $notic="投票已结束"; } else{ $notic="正在投票"; } } else{ $notic="未开始投票"; } echo $notic; ?>
 						</div>
 						<div class="digglist" id="vote_support">
 							<a href="javascript:void(0);" onclick="digg('support');" class="a1">支持</a>
 							<div class="d1">
-								<div class="d2" style="width:<?php echo ($project["rate_support"]); ?>%"></div><span><?php echo ($project["rate_support"]); ?>%</span></div>
+								<div class="d2" style="width:<?php echo ($vote["support_rate"]); ?>%"></div><span><?php echo ($vote["support_rate"]); ?>%</span></div>
 						</div>
 
 						<div class="digglist" id="vote_against">
 							<a href="javascript:void(0);" onclick="digg('oppose');" class="a2">反对</a>
 							<div class="d1">
-								<div class="d3" style="width:<?php echo ($project["rate_oppose"]); ?>%"></div><span><?php echo ($project["rate_oppose"]); ?>%</span></div>
+								<div class="d3" style="width:<?php echo ($vote["oppose_rate"]); ?>%"></div><span><?php echo ($vote["oppose_rate"]); ?>%</span></div>
 						</div>
 
 						<div class="diggnr">注：如规定时间内您未参与投票，系统将默认您为支持者</div>
@@ -233,7 +235,7 @@ if(session('username')){ ?>
 					<ul class="tab" id="tab">
 						<li class="tab-on" id="details_0">项目详情</li>
 						<li>项目动态</li>
-						<li id="jilu_0">投资记录（<?php echo ($project["funds_count"]); ?>）</li>
+						<li id="jilu_0">投资记录（<?php echo ($fundCount); ?>）</li>
 						<li>合同服务</li>
 					</ul>
 					<div class="nr">
@@ -241,7 +243,15 @@ if(session('username')){ ?>
 							<?php echo ($project["details"]); ?>
 						</div>
 						<div class="tab2">
-							<?php echo ($project["developments"]); ?>
+                            <div class="timeline-date">
+                                <ul>
+                                    <h2 class="second" style="position: relative;"></h2>
+                                    <?php if(is_array($evolve)): foreach($evolve as $key=>$item): ?><li>
+                                            <h3><?php echo ($item["time"]); ?></h3>
+                                            <dl class="right"><span><?php echo ($item["content"]); ?></span></dl>
+                                        </li><?php endforeach; endif; ?>
+                                </ul>
+							</div>
 						</div>
 						<div class="tab2" id="jilu" style="display: none;">
 							<table class="jilu" style="text-align: center;">
@@ -252,11 +262,11 @@ if(session('username')){ ?>
 									<th>日期</th>
 								</thead>
 								<tbody>
-									<?php if(is_array($project["funds"])): foreach($project["funds"] as $i=>$fund): ?><tr>
-										<td><?php echo $i+1;?></td>
-										<td><?php echo ($fund["uid"]); ?></td>
-										<td><?php echo ($fund["money"]); ?></td>
-										<td><?php echo ($fund["time"]); ?></td>
+									<?php if(is_array($fund)): foreach($fund as $i=>$item): ?><tr>
+										<td><?php echo ($i+1); ?></td>
+										<td><?php echo ($item["uid"]); ?></td>
+										<td><?php echo ($item["money"]); ?></td>
+										<td><?php echo ($item["time"]); ?></td>
 									</tr><?php endforeach; endif; ?>
 								</tbody>
 							</table>
@@ -265,185 +275,7 @@ if(session('username')){ ?>
 							<div class="clear"></div>
 						</div>
 						<div class="tab2">
-							<p class="content-title"><span >委托协议</span><span>&nbsp;</span></p>
-							<p class="indent"><span>协议编号：&nbsp;</span></p>
-							<p class="text"><span >甲方（委托方）：</span><span>&nbsp;</span></p>
-							<p class="text"><span>身份证号码：</span><span>&nbsp;</span></p>
-							<p class="text"><span >乙方（受托方）：</span><span style="font-weight:bold;">XXX</span><span>&nbsp;</span></p>
-							<p class="text"><span>丙方（担保方）：XXXXX有限公司</span><span>&nbsp;</span></p>
-							<p class="text"><span >鉴于：</span><span>&nbsp;</span></p>
-							<p class="text">
-								<span >甲方需购买</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Calibri;font-size:16px;">的车辆（以下&nbsp;简称<span style="font-family:Calibri;">“</span><span style="font-family:宋体;">该车辆</span><span style="font-family:Calibri;">”</span><span style="font-family:宋体;">），车架识别代码为</span></span><span style="font-family:Calibri;text-underline:single;font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Calibri;font-size:16px;">，发动机号码为</span><span style="font-family:Calibri;text-underline:single;font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Calibri;font-size:16px;">，注册日期为&nbsp;</span><span style="font-family:Calibri;text-underline:single;font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Calibri;font-size:16px;">；&nbsp;因该车辆购买价格较高，甲方无法以自有资金完全购买，考虑与其他意欲购买该车辆的自然人或法人（与其他参与了购买该车辆的实际持有人合称为<span style="font-family:Calibri;">“</span><span style="font-family:宋体;">合作人</span><span style="font-family:Calibri;">”&nbsp;</span><span style="font-family:宋体;">）共同出资购买、共同拥有该车辆。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>现甲、乙、丙三方经友好协商，达成以下协议，以供三方共同&nbsp;遵守：&nbsp;</span></p>
-							<p class="text">
-								<span>一、甲方委托的事项</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>委托乙方与该车辆的原权属人沟通购买该车辆，办理付款、缴税、产权登记等相关手续；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span >2.<span >委托乙方作为该车辆在车辆管理部门的名义登记人，代甲方持有该车辆的产权份额；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>3.<span>委托乙方对该车辆进行一般清洗、管理，并代缴相关费用；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>4.<span>委托乙方在成功购买该车辆后宣传并寻找有意向单独购买该车辆的优质客户，并引导客户看车等活动；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>5.<span>根据甲方及合作人的决定处置该车辆，并将处置该车辆所得款项扣除相关费用后按甲方及合作人对该车辆所持有的份额比例&nbsp;分配。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>二、乙方的权利</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>根据该车辆的市场价格变化及政策调整，向甲方及合作人发起处置该车辆的提议；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span>若发生影响该车辆权益的紧急事件，乙方有权作出有利于甲方及合作人权益的紧急处理；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>3.<span>根据甲方及合作人对该车辆的处置决定，选择该车辆的优质买受候选人；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>4.<span>乙方可在适当时候与甲方协商收购甲方对该车辆的占有份额；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>5.<span>如甲方转让其对该车辆的占有份额的，在同等条件下，乙方享有优先购买权。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>三、乙方的义务</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>以有利于甲方及合作人的方式善意管理该车辆，不定期向甲方及合作人汇报委托事项的进展情况；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span>成功购买该车辆后，不定期向甲方及合作人公布该车辆的产权状况、车辆状态；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>3.<span>关注该车辆的市场价格变化、政策调整等信息，并出具报告，供甲方及合作人及时获知该车辆的相关信息，保障其合法权益&nbsp;；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>4.<span>乙方应依甲方及合作人的决定处置该车辆，包括但不限于出售、出租、抵押、借用、装饰、改装等影响该车辆权益的行为；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>5.<span>甲方转让其对该车辆所占有的份额时，乙方应协助办理相关手续。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>四、投票规则</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>乙方可根据该车辆的市场价值变化在该众筹平台</span><span style="font-family:Calibri;">“网易云”</span><span style="font-family:宋体;">发起处置该车辆的投票，甲方及合作人可在投票期间对投票事项进行投票表决。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span style="font-family:宋体;">乙方将委托网易云以本协议第七条所述的方式通知甲方及合作人参与投票，并告知投票事项、投票期间及未及时投票的后果&nbsp;。若甲方在投票期间未进行任何投票活动的，则视为对投票事项内容的默认同意。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>3.<span>投票按甲方及所有合作人达到总人数的&nbsp;</span><span style="font-family:Calibri;">51%</span><span style="font-family:宋体;">（包含本数）以上同意即视为投票事项通过。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>4.<span>无论甲方及合作人以明示或者默认的形式做出的投票决定，都不可撤回或撤销，且为乙方执行投票决定的唯一指令，视为甲&nbsp;方自己真实的指令，甲方应对乙方忠实执行上述指令产生的任何结果承担责任。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>五、丙方的担保责任</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>丙方承诺并保证，在乙方出现下列情形时，对甲方造成的经济损失进行担保，担保数额以甲方参与购买该车辆投入的本金数&nbsp;额为限：&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>(1).<span>乙方未按约定，擅自挪用甲方投入乙方在&nbsp;网易云的关联账户用于购买该车辆的资金。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>(2).<span>乙方未按约定将出售该车辆的款项扣除相&nbsp;关费用后按甲方占有的份额比例划转至甲方在网易云的关联账户。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>(3).<span>其他乙方因违反国家法律、法规的规定而&nbsp;导致被吊销营业执照或被追究刑事责任的情形。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span>除本条第&nbsp;</span><span >1&nbsp;</span><span>款所述情形外，丙方不对甲方参与该项目的任何亏损和收益负责。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>六、费用</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>甲方及合作人委托乙方购买的该车辆总价值为&nbsp;</span><span class="font1">___________&nbsp;</span><span class="font2">元（大写元人民币），甲方购买所持有的份额&nbsp;占该车辆总额的</span><span class="font1">______%</span><span class="font2">既为</span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>元（大写&nbsp;</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>元人民币）；&nbsp;</span></p>
-							<p class="text indet2">
-								<span>2.<span>乙方收取</span><span>____________________</span><span>作为管理费；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>3.<span>乙方在代甲方购买、持有、管理及处置该车辆等过程中代缴的费用从处置该车辆所获得的款项中扣除；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>4.<span>如甲方因处置该车辆获得的收益需缴纳相关税费（如有）的，由甲方自行承担，也可由乙方从款项中扣除。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>5.<span>丙方收取</span><span>______________________</span><span>作为担保费。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>6.<span >甲方委托乙方向网易云支付</span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>作为平台服&nbsp;务费。&nbsp;</span></p>
-							<p class="text">
-								<span>七、通知事项及方式</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>乙方将通过发送手机短信、个人电子邮件（以甲方在网易云平台上注册时或更新时提供的信息为准）、网易云平台站内信和&nbsp;网站公告四种方式将下列事项告知甲方：&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>(1).</span><span>委托事项的进展情况；&nbsp;</span>
-							</p>
-							<p class="text indet2">
-								<span>(2).</span><span>对该车辆的维修、管理及代缴费用等情况&nbsp;；&nbsp;</span>
-							</p>
-							<p class="text indet2">
-								<span>(3).</span><span> 车辆状况及价格变化、政策调整等信息的&nbsp;报告；&nbsp;</span>
-							</p>
-							<p class="text indet2">
-								<span>(4).</span><span>发生的紧急事件及处理情况；&nbsp;</span>
-							</p>
-							<p class="text indet2">
-								<span class="font1">(5).</span><span>需甲方及合作人投票决定的事项及投票结&nbsp;果；&nbsp;</span>
-							</p>
-							<p class="text indet2">
-								<span class="font1">(6)</span><span class="font2">根据本条第（5）项的投票&nbsp;决定所处理的结果。&nbsp;</span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span>乙方经上述四种方式将通知事项发送给甲方，即视为成功送达。如甲方接收上述信息的手机号码、个人电子邮箱、网易云平台站内信地址发生变更的，甲方应&nbsp;及时更新其在网易云平台上的个人信息，如因甲方未及时更新而导致未能及时接收乙方通知的，由甲方自行承担相关后果。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>八、协议的解除</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>乙方根据本协议第二条第&nbsp;</span><span class="font1">5&nbsp;</span><span class="font2">款购买甲方对该车辆所占有的全部份额后，本委托协议自动解除；&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span>乙方根据甲方及合作人的处置决定处置该车辆并将甲方按约定可得的款项划入甲方在网易云的关联账户后，本协议自动解除&nbsp;。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>3.<span>甲方通过网易云</span><span class="font1">“</span><span class="font2">网易云</span><span style="font-family:Calibri;">”</span><span style="font-family:宋体;">产品协议转让专区转让其对该车辆占有的全部份额时，本协议自动解除。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>九、特别提示</span><span>&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>甲方作为具有完全民事行为能力人，对本协议涉及事项的风险有充分的认知，一经签署本协议，即视为充分理解并完全接受&nbsp;本协议的内容。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span>乙方仅作为甲方及合作人表决的执行人，甲方对与合作人共同购买该车辆可能产生的亏损或收益的后果由其自行承担，与乙&nbsp;方无关；乙方不参与该车辆处置后的收益分成，也不负担处置该车辆产生的亏损。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>3.<span>乙方不承诺甲方对该车辆的处置会产生任何的收益。&nbsp;</span></span>
-							</p>
-							<p class="text">
-								<span>十、其他事项</span><span>&nbsp;</span></p>
-							<p class="text">
-								<span>&nbsp;&nbsp;</span></p>
-							<p class="text indet2">
-								<span>1.<span>如因本协议所产生的争议，由甲、乙、丙三方友好协商。协商不成的，由车辆所在地人民法院管辖。&nbsp;</span></span>
-							</p>
-							<p class="text indet2">
-								<span>2.<span>本协议为电子协议，自甲、乙、丙三方签字或盖章之日起生效&nbsp;</span></span>
-							</p>
-							<p class="text"><span>各方签署：&nbsp;</span></p>
-							<p class="text"><span>甲方：</span><span>&nbsp;</span></p>
-							<p class="text"><span>乙方：</span><span>XXX</span></p>
-							<p class="text"><span>丙方：</span><span >XXXXX有限公司</span><span>&nbsp;</span></p>
-							<p class="text indet2"><span class="font">协议签订地：</span><span class="font1 fontWeight">&nbsp;</span></p>
-							<p class="text"><span>协议签署日期：</span><span>&nbsp;</span></p>
-							<p>
-								&nbsp;</p>
-
+                            <?php echo ($project["contract"]); ?>
 						</div>
 						<div class="clear"></div>
 					</div>

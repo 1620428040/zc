@@ -68,7 +68,7 @@
 					<td><?php echo ($item["had"]); ?>(元)</td>
 					<td><?php echo ($item["vote"]); ?>(元)</td>
 					<td><?php echo ($item["begin_time"]); ?></td>
-					<td><?php echo ($item["surplus_time"]); ?>(天)</td>
+					<td><?php echo ($item["timeMax"]); ?>(天)</td>
 					<td>
 <?php  if($status==="sell,vote"){ echo '<a href="'.U("startVote",["pid"=>$item["id"]]).'">投票</a>'; } elseif($status==="return"){ echo '<a href="'.U("Api/Fund/complete",["pid"=>$item["id"]]).'">回款</a>'; } ?>
 						<!--<a href="javaScript:void(0)">编辑</a>-->

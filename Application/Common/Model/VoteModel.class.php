@@ -12,6 +12,32 @@ class VoteModel extends Model {
     protected function _before_insert(&$data,$options){
         $data["status"]="run";
     }
+    public function select($options=array()){
+        $options["table"]=$this->getTableName()."_view";
+        $result = parent::select($options);
+        foreach($result as &$item){
+			//$item["progress"]=round($item["had"]/$item["need"]*100,2);
+		}
+		return $result;
+    }
+    public function find($options=array()){
+        $options["table"]=$this->getTableName()."_view";
+        $result = parent::find($options);
+        if($result){
+            $result["support_rate"]=round($result["support"]/$result["total"]*100,2);
+            $result["oppose_rate"]=round($result["oppose"]/$result["total"]*100,2);
+        }
+        return $result;
+    }
+
+    public function selectFormView(){
+        $view = $this->getTableName()."_view";
+        return $this->select(["table"=>$view]);
+    }
+    public function findFormView(){
+        $view = $this->getTableName()."_view";
+        return $this->find(["table"=>$view]);
+    }
     public function start($uid){
         $data=$this->create();
         if(!$data){
@@ -24,8 +50,6 @@ class VoteModel extends Model {
         if($old){
             foreach($old as $vote){
                 $this->stop($vote["id"],$vote["pid"],$uid);
-                // $this->save(["id"=>$vote["id"],"status"=>"stop"]);
-                // D("Evolve")->log(["pid"=>$vote["pid"],"vid"=>$vote["id"],"uid"=>$vote["uid"],"event"=>"vote_end","content"=>""]);
             }
         }
 
@@ -59,7 +83,8 @@ class VoteModel extends Model {
         $voteUser=$voteUserModel->create([
             "vid"=>$data["id"],
             "uid"=>$uid,
-            "vote"=>$vote
+            "vote"=>$vote,
+            "time"=>date("Y-m-d H:i:s")
         ]);
         if(!$voteUser){
             $this->error="VoteUser:".$voteUserModel->error;
@@ -79,16 +104,9 @@ class VoteModel extends Model {
         return $result;
     }
     public function refresh($vid){
-        $view=M("VoteView");
-        $vote=$view->where("id=".$vid." and `status`='run'")->find();
+        $vote=$this->where("id=".$vid." and `status`='run'")->findFormView();
         if($vote["support"]*2>$vote["total"]){
             $this->success($vote["id"],$vote["pid"]);
-            // $result=$this->save(["id"=>$vid,"status"=>"success"]);
-            // if(!$result){
-            //     return false;
-            // }
-            // M("Project")->save(["id"=>$vote["pid"],"status"=>"return"]);
-            // D("Evolve")->log(["pid"=>$vote["pid"],"vid"=>$vote["id"],"event"=>"vote_end","content"=>""]);
         }
         return true;
     }
@@ -110,17 +128,14 @@ class VoteModel extends Model {
         D("Evolve")->log(["pid"=>$pid,"vid"=>$vid,"uid"=>$uid,"event"=>"vote_end","content"=>""]);
     }
     public function autoSubmit(){
-        $view=M("VoteView");
         $project=M("Project");
         //定时-7个工作日内未完成交易
-        $data=$view->where("`status` like 'success' and date_add(`end_time`, interval 7 day) <= now()")->select();
+        $data=$this->where("`status` like 'success' and date_add(`end_time`, interval 7 day) <= now()")->selectFormView();
         foreach($data as $item){
             $project->complete($item["pid"]);
-            // $project->save(["id"=>$item["pid"],"status"=>"complete"]);
-            // D("Evolve")->log(["pid"=>$item["pid"],"event"=>"complete","content"=>""]);
         }
         //定时-投票期限已到，开始统计投票
-        $data=$view->where("`status` like 'run' and date_add(`begin_time`, interval `timeLimit` day) <= now()")->select();
+        $data=$this->where("`status` like 'run' and date_add(`begin_time`, interval `timeLimit` day) <= now()")->selectFormView();
         foreach($data as $vote){
             if($vote["oppose"]*2<$vote["total"]){
                 $this->success($vote["id"],$vote["pid"]);

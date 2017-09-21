@@ -92,12 +92,18 @@
 			<textarea name="contract" cols="48" rows="3">此处添加项目的合同</textarea>
 			<span class="xing color1"></span>
 		</p>
-		<button type="button" class="revise_btn" onclick="startProject();">确定</button>
+		<button type="button" class="revise_btn" onclick="startProject(this);">确定</button>
 	</form>
-	<script type="text/javascript">
+    <script type="text/javascript">
 		function startProject(){
 			$.post("<?php echo U('Api/Fund/start');?>",$("#project-form").serialize(),function(res){
-				alert(res.info);
+                if(res["status"]===1){
+                    alert(res.info);
+                    location.href=res.url;
+                }
+				else{
+                    document.write(res);
+                }
 			});
 		}
 	</script>

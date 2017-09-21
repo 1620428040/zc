@@ -4,6 +4,14 @@ namespace Api\Controller;
 use Think\Controller;
 
 class FundController extends Controller {
+    //获取当前用户的id
+    public function getUserId(){
+        $uid = I("session.id","");
+        if($uid === ''){
+            $this->error('请先登录');
+        }
+        return $uid;
+    }
     //创建项目的接口
     public function start(){
         $model = D('Project');
@@ -11,7 +19,18 @@ class FundController extends Controller {
         $fundTime=I("start_time","");
         $result=$model->start($uid,$fundTime);
         if ($result){
-        	$this->success("添加成功",U("Fund/running"));
+        	$this->success("添加成功",U("Admin/Fund/running"));
+        }else{
+        	$this->error($model->getError());
+        }
+    }
+    //创建新的投票的接口
+    public function startVote(){
+        $model=D("Vote");
+        $uid=$this->getUserId();
+        $result=$model->start($uid);
+        if($result){
+            $this->success("创建投票成功",U("Admin/Fund/onsell"));
         }else{
         	$this->error($model->getError());
         }
@@ -34,7 +53,7 @@ class FundController extends Controller {
 
         $result=$model->complete($pid,$uid);
         if($result){
-            $this->success("众筹项目成功结束");
+            $this->success("众筹项目成功结束",U("Admin/Fund/complete"));
         }
         else{
             $this->error($model->getError());
@@ -47,17 +66,6 @@ class FundController extends Controller {
         $result=$model->fund($uid);
         if($result){
             $this->success("投标成功");
-        }else{
-        	$this->error($model->getError());
-        }
-    }
-    //创建新的投票的接口
-    public function startVote(){
-        $model=D("Vote");
-        $uid=$this->getUserId();
-        $result=$model->start($uid);
-        if($result){
-            $this->success("创建投票成功");
         }else{
         	$this->error($model->getError());
         }
@@ -77,14 +85,7 @@ class FundController extends Controller {
         }
     }
 
-    //获取当前用户的id
-    public function getUserId(){
-        $uid = I("session.id","");
-		if($uid === ''){
-			$this->error('请先登录');
-        }
-        return $uid;
-    }
+
     //到达指定的时间，自动结算的接口
     public function autoSubmit(){
         D('Project')->autoSubmit();

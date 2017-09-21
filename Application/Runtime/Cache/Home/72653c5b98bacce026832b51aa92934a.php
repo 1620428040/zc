@@ -121,8 +121,8 @@ if(session('username')){ ?>
 								<p class="zijin ico3">众筹金额： <span>￥<?php echo ($item["need"]); ?></span></p>
 								<p class="jindu1"><span class="jindu2" style="width:0.0%"></span></p>
 								<span class="lb1"><span>￥<?php echo ($item["had"]); ?></span><br>已筹集</span>
-								<span class="lb2"><span><?php echo ($item["vote_support"]); ?></span><br>支持人数</span>
-								<span class="lb3"><span>已结束 </span><br> 剩余时间</span>
+								<span class="lb2"><span><?php echo ($item["support"]); ?></span><br>支持人数</span>
+								<span class="lb3"><span><?php echo ($item["statusDesc"]); ?> </span><br> <?php echo ($item["residue"]); ?></span>
 							</li><?php endforeach; endif; ?>
 					</ul>
 				</div>
